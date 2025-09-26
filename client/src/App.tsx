@@ -9,6 +9,7 @@ import NISTPasswordChecker from "@/pages/nist-password-checker";
 import GDPRPasswordCompliance from "@/pages/gdpr-password-compliance";
 import ISO27001PasswordRules from "@/pages/iso27001-password-rules";
 import PCIDSSPasswordRequirements from "@/pages/pci-dss-password-requirements";
+import ComplianceComparison from "@/pages/compliance-comparison";
 
 function Router() {
   return (
@@ -18,6 +19,7 @@ function Router() {
       <Route path="/gdpr-password-compliance" component={GDPRPasswordCompliance} />
       <Route path="/iso27001-password-rules" component={ISO27001PasswordRules} />
       <Route path="/pci-dss-password-requirements" component={PCIDSSPasswordRequirements} />
+      <Route path="/compliance-comparison" component={ComplianceComparison} />
       <Route component={NotFound} />
     </Switch>
   );

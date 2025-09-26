@@ -124,6 +124,7 @@ export default function Home() {
             <div>
               <h3 className="font-semibold mb-3">Resources</h3>
               <ul className="space-y-2 text-sm text-muted-foreground">
+                <li><Link href="/compliance-comparison" className="hover:text-foreground" data-testid="link-comparison">Standards Comparison</Link></li>
                 <li><a href="#" className="hover:text-foreground">Password Best Practices</a></li>
                 <li><a href="#" className="hover:text-foreground">Compliance Guides</a></li>
                 <li><a href="#" className="hover:text-foreground">Security Blog</a></li>
