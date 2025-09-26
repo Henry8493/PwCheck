@@ -1,6 +1,6 @@
 # Overview
 
-SecureCheck is a professional password strength analyzer web application designed to help users evaluate and improve their password security. The application provides compliance-based password evaluation against industry standards (NIST SP 800-63B, GDPR, ISO 27001, PCI DSS) while maintaining complete user privacy through client-side processing. Built as a consumer-focused tool, it includes password generation capabilities and educational content about security best practices.
+Pw Check is a professional password strength analyzer web application designed to help users evaluate and improve their password security. The application provides compliance-based password evaluation against industry standards (NIST SP 800-63B, GDPR, ISO 27001, PCI DSS) while maintaining complete user privacy through client-side processing. Built as a consumer-focused tool, it includes password generation capabilities and educational content about security best practices.
 
 # User Preferences
 
