@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { Copy, RefreshCw } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Slider } from '@/components/ui/slider';
@@ -14,7 +14,7 @@ export function PasswordGenerator() {
   const [generatedPassword, setGeneratedPassword] = useState('');
   const { toast } = useToast();
 
-  const handleGenerate = () => {
+  const handleGenerate = useCallback(() => {
     try {
       const password = generatePassword(options);
       setGeneratedPassword(password);
@@ -25,7 +25,7 @@ export function PasswordGenerator() {
         variant: 'destructive'
       });
     }
-  };
+  }, [options, toast]);
 
   const handleCopy = async () => {
     if (!generatedPassword) return;
@@ -53,10 +53,11 @@ export function PasswordGenerator() {
     setOptions(prev => ({ ...prev, [key]: value }));
   };
 
-  // Generate initial password
-  if (!generatedPassword) {
-    handleGenerate();
-  }
+  useEffect(() => {
+    if (!generatedPassword) {
+      handleGenerate();
+    }
+  }, [generatedPassword, handleGenerate]);
 
   return (
     <div className="bg-card p-6 rounded-lg shadow-sm border border-border">
