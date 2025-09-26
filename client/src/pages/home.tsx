@@ -125,9 +125,21 @@ export default function Home() {
               <h3 className="font-semibold mb-3">Resources</h3>
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li><Link href="/compliance-comparison" className="hover:text-foreground" data-testid="link-comparison">Standards Comparison</Link></li>
-                <li><a href="#" className="hover:text-foreground">Password Best Practices</a></li>
-                <li><a href="#" className="hover:text-foreground">Compliance Guides</a></li>
-                <li><a href="#" className="hover:text-foreground">Security Blog</a></li>
+                <li>
+                  <Link href="/password-best-practices" className="hover:text-foreground" data-testid="link-best-practices">
+                    Password Best Practices
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/compliance-guides" className="hover:text-foreground" data-testid="link-guides">
+                    Compliance Guides
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/security-blog" className="hover:text-foreground" data-testid="link-blog">
+                    Security Blog
+                  </Link>
+                </li>
               </ul>
             </div>
             
@@ -144,10 +156,26 @@ export default function Home() {
             <div>
               <h3 className="font-semibold mb-3">About</h3>
               <ul className="space-y-2 text-sm text-muted-foreground">
-                <li><a href="#" className="hover:text-foreground">How It Works</a></li>
-                <li><a href="#" className="hover:text-foreground">Privacy Policy</a></li>
-                <li><a href="#" className="hover:text-foreground">Terms of Service</a></li>
-                <li><a href="#" className="hover:text-foreground">Contact</a></li>
+                <li>
+                  <Link href="/how-it-works" className="hover:text-foreground" data-testid="link-how-it-works">
+                    How It Works
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/privacy-policy" className="hover:text-foreground" data-testid="link-privacy">
+                    Privacy Policy
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/terms-of-service" className="hover:text-foreground" data-testid="link-terms">
+                    Terms of Service
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/contact" className="hover:text-foreground" data-testid="link-contact">
+                    Contact
+                  </Link>
+                </li>
               </ul>
             </div>
           </div>
