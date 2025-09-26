@@ -1,4 +1,5 @@
 import { Lock, CheckCircle } from 'lucide-react';
+import { Link } from 'wouter';
 import { PasswordChecker } from '@/components/password-checker';
 import { PasswordGenerator } from '@/components/password-generator';
 import { PrivacyNotice } from '@/components/privacy-notice';
@@ -45,6 +46,66 @@ export default function Home() {
           </div>
         </div>
 
+        {/* Compliance Standards Section */}
+        <section className="mt-16 mb-16">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-4">Compliance Standards We Support</h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              Our password analyzer validates against major security frameworks and compliance requirements
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <Link href="/nist-password-checker" className="group" data-testid="card-nist">
+              <div className="p-6 border rounded-lg bg-card hover:shadow-lg transition-shadow">
+                <div className="text-center">
+                  <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-lg flex items-center justify-center mx-auto mb-4">
+                    <Lock className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+                  </div>
+                  <h3 className="font-semibold mb-2 group-hover:text-primary">NIST SP 800-63B</h3>
+                  <p className="text-sm text-muted-foreground">Federal cybersecurity guidelines for digital identity authentication</p>
+                </div>
+              </div>
+            </Link>
+            
+            <Link href="/gdpr-password-compliance" className="group" data-testid="card-gdpr">
+              <div className="p-6 border rounded-lg bg-card hover:shadow-lg transition-shadow">
+                <div className="text-center">
+                  <div className="w-12 h-12 bg-purple-100 dark:bg-purple-900 rounded-lg flex items-center justify-center mx-auto mb-4">
+                    <CheckCircle className="w-6 h-6 text-purple-600 dark:text-purple-400" />
+                  </div>
+                  <h3 className="font-semibold mb-2 group-hover:text-primary">GDPR Compliance</h3>
+                  <p className="text-sm text-muted-foreground">EU data protection requirements and privacy by design principles</p>
+                </div>
+              </div>
+            </Link>
+            
+            <Link href="/iso27001-password-rules" className="group" data-testid="card-iso27001">
+              <div className="p-6 border rounded-lg bg-card hover:shadow-lg transition-shadow">
+                <div className="text-center">
+                  <div className="w-12 h-12 bg-green-100 dark:bg-green-900 rounded-lg flex items-center justify-center mx-auto mb-4">
+                    <Lock className="w-6 h-6 text-green-600 dark:text-green-400" />
+                  </div>
+                  <h3 className="font-semibold mb-2 group-hover:text-primary">ISO 27001</h3>
+                  <p className="text-sm text-muted-foreground">International information security management standards</p>
+                </div>
+              </div>
+            </Link>
+            
+            <Link href="/pci-dss-password-requirements" className="group" data-testid="card-pci-dss">
+              <div className="p-6 border rounded-lg bg-card hover:shadow-lg transition-shadow">
+                <div className="text-center">
+                  <div className="w-12 h-12 bg-red-100 dark:bg-red-900 rounded-lg flex items-center justify-center mx-auto mb-4">
+                    <CheckCircle className="w-6 h-6 text-red-600 dark:text-red-400" />
+                  </div>
+                  <h3 className="font-semibold mb-2 group-hover:text-primary">PCI DSS</h3>
+                  <p className="text-sm text-muted-foreground">Payment card industry security standards for cardholder data</p>
+                </div>
+              </div>
+            </Link>
+          </div>
+        </section>
+
         {/* Methodology Section */}
         <MethodologySection />
       </main>
@@ -72,10 +133,10 @@ export default function Home() {
             <div>
               <h3 className="font-semibold mb-3">Standards</h3>
               <ul className="space-y-2 text-sm text-muted-foreground">
-                <li><a href="#" className="hover:text-foreground">NIST Guidelines</a></li>
-                <li><a href="#" className="hover:text-foreground">GDPR Compliance</a></li>
-                <li><a href="#" className="hover:text-foreground">ISO 27001</a></li>
-                <li><a href="#" className="hover:text-foreground">PCI DSS</a></li>
+                <li><Link href="/nist-password-checker" className="hover:text-foreground" data-testid="link-nist">NIST Guidelines</Link></li>
+                <li><Link href="/gdpr-password-compliance" className="hover:text-foreground" data-testid="link-gdpr">GDPR Compliance</Link></li>
+                <li><Link href="/iso27001-password-rules" className="hover:text-foreground" data-testid="link-iso27001">ISO 27001</Link></li>
+                <li><Link href="/pci-dss-password-requirements" className="hover:text-foreground" data-testid="link-pci-dss">PCI DSS</Link></li>
               </ul>
             </div>
             
