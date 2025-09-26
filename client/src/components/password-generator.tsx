@@ -5,6 +5,11 @@ import { Slider } from '@/components/ui/slider';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger
+} from '@/components/ui/collapsible';
 import { generatePassword, getDefaultGeneratorOptions } from '@/lib/password-generator';
 import { GeneratorOptions } from '@/types/password';
 import { useToast } from '@/hooks/use-toast';
@@ -12,6 +17,7 @@ import { useToast } from '@/hooks/use-toast';
 export function PasswordGenerator() {
   const [options, setOptions] = useState<GeneratorOptions>(getDefaultGeneratorOptions());
   const [generatedPassword, setGeneratedPassword] = useState('');
+  const [showAdvanced, setShowAdvanced] = useState(false);
   const { toast } = useToast();
 
   const handleGenerate = () => {
@@ -131,6 +137,56 @@ export function PasswordGenerator() {
             </Label>
           </div>
         </div>
+
+        <Collapsible
+          open={showAdvanced}
+          onOpenChange={setShowAdvanced}
+          className="space-y-2 border-t border-border pt-4"
+        >
+          <div className="flex items-center justify-between">
+            <span className="text-sm font-medium">Advanced Options</span>
+            <CollapsibleTrigger asChild>
+              <Button variant="ghost" size="sm">
+                {showAdvanced ? 'Hide' : 'Show'}
+              </Button>
+            </CollapsibleTrigger>
+          </div>
+          <CollapsibleContent className="space-y-3">
+            <div className="flex items-start space-x-2">
+              <Checkbox
+                id="exclude-similar"
+                checked={options.excludeSimilar}
+                onCheckedChange={(checked) => handleOptionChange('excludeSimilar', !!checked)}
+                data-testid="checkbox-exclude-similar"
+              />
+              <div className="space-y-1">
+                <Label htmlFor="exclude-similar" className="text-sm">
+                  Exclude Similar Characters
+                </Label>
+                <p className="text-xs text-muted-foreground">
+                  Avoid characters like l, 1, O, and 0 to reduce confusion.
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-start space-x-2">
+              <Checkbox
+                id="exclude-ambiguous"
+                checked={options.excludeAmbiguous}
+                onCheckedChange={(checked) => handleOptionChange('excludeAmbiguous', !!checked)}
+                data-testid="checkbox-exclude-ambiguous"
+              />
+              <div className="space-y-1">
+                <Label htmlFor="exclude-ambiguous" className="text-sm">
+                  Exclude Ambiguous Symbols
+                </Label>
+                <p className="text-xs text-muted-foreground">
+                  Remove characters such as {`{`} {`}`} [ ] ( ) / and \ for cleaner passwords.
+                </p>
+              </div>
+            </div>
+          </CollapsibleContent>
+        </Collapsible>
 
         <div className="space-y-2">
           <div className="flex items-center justify-between">
