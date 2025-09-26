@@ -9,6 +9,7 @@ export interface PasswordAnalysis {
   hasSymbols: boolean;
   hasCommonPatterns: boolean;
   isCommonPassword: boolean;
+  hasDictionaryWords: boolean;
   feedback: string[];
   crackTime: string;
 }

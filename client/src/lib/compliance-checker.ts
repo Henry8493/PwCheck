@@ -28,9 +28,11 @@ function checkNISTCompliance(password: string, analysis: PasswordAnalysis): Comp
       severity: analysis.length <= 64 ? 'info' : 'error'
     },
     {
-      description: 'Not a common password',
-      passed: !analysis.isCommonPassword,
-      severity: analysis.isCommonPassword ? 'error' : 'info'
+      description: analysis.hasDictionaryWords ? 'Avoid dictionary words in passwords' : 
+                  analysis.hasCommonPatterns ? 'Avoid predictable password patterns' :
+                  'Not a common password',
+      passed: !analysis.isCommonPassword && !analysis.hasDictionaryWords && !analysis.hasCommonPatterns,
+      severity: (analysis.isCommonPassword || analysis.hasDictionaryWords || analysis.hasCommonPatterns) ? 'error' : 'info'
     },
     {
       description: 'No composition rules enforced',
