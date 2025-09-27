@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
 import { Link } from 'wouter';
-import { Shield, Workflow, Lock, Gauge, ScrollText, Users, ArrowRight } from 'lucide-react';
-import { Badge } from '@/components/ui/badge';
+import { Workflow, Lock, Gauge, ScrollText, Users, ArrowRight } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { SiteHeader } from '@/components/site-header';
 
 export default function HowItWorks() {
   useEffect(() => {
@@ -62,21 +62,7 @@ export default function HowItWorks() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-cyan-100 dark:from-slate-900 dark:to-cyan-950">
-      <nav className="bg-white dark:bg-gray-900 shadow-sm border-b">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <Link href="/" className="flex items-center space-x-2 text-cyan-600 dark:text-cyan-400">
-              <Shield className="h-8 w-8" />
-              <span className="text-xl font-bold">Pw Check</span>
-            </Link>
-            <div className="flex items-center space-x-4">
-              <Badge variant="outline" className="bg-green-50 text-green-700 border-green-200">
-                100% Private
-              </Badge>
-            </div>
-          </div>
-        </div>
-      </nav>
+      <SiteHeader />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="text-center mb-16">

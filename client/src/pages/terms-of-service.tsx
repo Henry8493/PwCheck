@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
-import { Link } from 'wouter';
 import { Shield, Scale, LifeBuoy } from 'lucide-react';
-import { Badge } from '@/components/ui/badge';
+import { SiteHeader } from '@/components/site-header';
 
 export default function TermsOfService() {
   useEffect(() => {
@@ -68,21 +67,7 @@ export default function TermsOfService() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-slate-100 dark:from-slate-900 dark:to-slate-950">
-      <nav className="bg-white dark:bg-gray-900 shadow-sm border-b">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <Link href="/" className="flex items-center space-x-2 text-slate-700 dark:text-slate-300">
-              <Shield className="h-8 w-8" />
-              <span className="text-xl font-bold">Pw Check</span>
-            </Link>
-            <div className="flex items-center space-x-4">
-              <Badge variant="outline" className="bg-green-50 text-green-700 border-green-200">
-                100% Private
-              </Badge>
-            </div>
-          </div>
-        </div>
-      </nav>
+      <SiteHeader />
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="text-center mb-16">

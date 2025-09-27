@@ -4,6 +4,7 @@ import { Shield, CheckCircle, CreditCard, ArrowRight, Lock, DollarSign } from 'l
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { SiteHeader } from '@/components/site-header';
 
 export default function PCIDSSPasswordRequirements() {
   useEffect(() => {
@@ -116,25 +117,14 @@ export default function PCIDSSPasswordRequirements() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-red-50 to-blue-100 dark:from-gray-900 dark:to-gray-800">
       {/* Navigation */}
-      <nav className="bg-white dark:bg-gray-900 shadow-sm border-b">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <Link href="/" className="flex items-center space-x-2 text-blue-600 dark:text-blue-400">
-              <Shield className="h-8 w-8" />
-              <span className="text-xl font-bold">Pw Check</span>
-            </Link>
-            <div className="flex items-center space-x-4">
-              <Badge variant="outline" className="bg-green-50 text-green-700 border-green-200">
-                100% Private
-              </Badge>
-              <Badge variant="outline" className="bg-red-50 text-red-700 border-red-200">
-                <DollarSign className="h-3 w-3 mr-1" />
-                PCI Certified
-              </Badge>
-            </div>
-          </div>
-        </div>
-      </nav>
+      <SiteHeader
+        additionalBadges={
+          <Badge variant="outline" className="bg-red-50 text-red-700 border-red-200">
+            <DollarSign className="h-3 w-3 mr-1" />
+            PCI Certified
+          </Badge>
+        }
+      />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Hero Section */}
