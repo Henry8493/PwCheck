@@ -41,8 +41,8 @@ export default function Contact() {
       title: 'Email',
       description: 'General support and enterprise onboarding questions. Expect a response within two business days.',
       icon: Mail,
-      value: 'hello@pwcheck.app',
-      href: 'mailto:hello@pwcheck.app'
+      value: 'hello@pwcheck.com',
+      href: 'mailto:hello@pwcheck.com'
     },
     {
       title: 'Phone',
@@ -55,8 +55,8 @@ export default function Contact() {
       title: 'Community',
       description: 'Join the Pw Check community chat to share feedback and request new features.',
       icon: MessageSquare,
-      value: 'community.pwcheck.app',
-      href: 'https://community.pwcheck.app'
+      value: 'community.pwcheck.com',
+      href: 'https://community.pwcheck.com'
     }
   ];
 
@@ -107,7 +107,7 @@ export default function Contact() {
                   Send message
                 </Button>
                 <p className="text-xs text-muted-foreground">
-                  We do not store submitted messages in this demo environment. For production enquiries, please email us directly.
+                  For enquiries, please email us directly.
                 </p>
               </form>
             </CardContent>
@@ -144,7 +144,7 @@ export default function Contact() {
                 <div>
                   <CardTitle className="text-xl">Registered Office</CardTitle>
                   <div className="mt-3 text-gray-600 dark:text-gray-300 space-y-1">
-                    <p>Pw Check Ltd.</p>
+                    <p>Pw Check</p>
                     <p>221B Password Lane</p>
                     <p>London, UK</p>
                   </div>
