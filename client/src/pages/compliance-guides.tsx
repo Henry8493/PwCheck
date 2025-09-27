@@ -6,7 +6,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 
 export default function ComplianceGuides() {
   useEffect(() => {
-    document.title = 'Password Compliance Guides | SecureCheck';
+    document.title = 'Password Compliance Guides | Pw Check';
 
     let metaDescription = document.querySelector('meta[name="description"]');
     if (!metaDescription) {
@@ -29,7 +29,7 @@ export default function ComplianceGuides() {
       metaTag.setAttribute('content', content);
     };
 
-    addMetaTag('og:title', 'Password Compliance Guides | SecureCheck');
+    addMetaTag('og:title', 'Password Compliance Guides | Pw Check');
     addMetaTag(
       'og:description',
       'Implementation checklists and practical advice for aligning password policies with leading security regulations.'
@@ -61,7 +61,7 @@ export default function ComplianceGuides() {
       focus: 'Enterprise information security management',
       steps: [
         'Align password policies with Annex A control set and risk assessments.',
-        'Integrate SecureCheck reports into management review evidence.',
+        'Integrate Pw Check reports into management review evidence.',
         'Track corrective actions for weak passwords found during internal audits.'
       ]
     },
@@ -101,7 +101,7 @@ export default function ComplianceGuides() {
           <div className="flex justify-between items-center h-16">
             <Link href="/" className="flex items-center space-x-2 text-purple-600 dark:text-purple-400">
               <Shield className="h-8 w-8" />
-              <span className="text-xl font-bold">SecureCheck</span>
+              <span className="text-xl font-bold">Pw Check</span>
             </Link>
             <div className="flex items-center space-x-4">
               <Badge variant="outline" className="bg-green-50 text-green-700 border-green-200">
@@ -122,7 +122,7 @@ export default function ComplianceGuides() {
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">Compliance Guides</h1>
           <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
             Navigate certification requirements with practical, plain-language guidance. Each guide highlights the password
-            controls auditors expect and how SecureCheck keeps evidence current.
+            controls auditors expect and how Pw Check keeps evidence current.
           </p>
         </div>
 

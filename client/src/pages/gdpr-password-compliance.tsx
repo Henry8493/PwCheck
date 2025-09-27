@@ -8,7 +8,7 @@ import { Badge } from '@/components/ui/badge';
 export default function GDPRPasswordCompliance() {
   useEffect(() => {
     // Set page title and meta description for SEO
-    document.title = 'GDPR Password Compliance Checker - EU Data Protection Standards | SecureCheck';
+    document.title = 'GDPR Password Compliance Checker - EU Data Protection Standards | Pw Check';
     
     // Create or update meta description
     let metaDescription = document.querySelector('meta[name="description"]');
@@ -85,7 +85,7 @@ export default function GDPRPasswordCompliance() {
           <div className="flex justify-between items-center h-16">
             <Link href="/" className="flex items-center space-x-2 text-blue-600 dark:text-blue-400">
               <Shield className="h-8 w-8" />
-              <span className="text-xl font-bold">SecureCheck</span>
+              <span className="text-xl font-bold">Pw Check</span>
             </Link>
             <div className="flex items-center space-x-4">
               <Badge variant="outline" className="bg-green-50 text-green-700 border-green-200">

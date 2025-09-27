@@ -6,7 +6,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 
 export default function PasswordBestPractices() {
   useEffect(() => {
-    document.title = 'Password Best Practices Guide | SecureCheck';
+    document.title = 'Password Best Practices Guide | Pw Check';
 
     let metaDescription = document.querySelector('meta[name="description"]');
     if (!metaDescription) {
@@ -29,7 +29,7 @@ export default function PasswordBestPractices() {
       metaTag.setAttribute('content', content);
     };
 
-    addMetaTag('og:title', 'Password Best Practices Guide | SecureCheck');
+    addMetaTag('og:title', 'Password Best Practices Guide | Pw Check');
     addMetaTag(
       'og:description',
       'Practical password best practices that help your organisation stay compliant while protecting accounts from takeover.'
@@ -77,7 +77,7 @@ export default function PasswordBestPractices() {
           <div className="flex justify-between items-center h-16">
             <Link href="/" className="flex items-center space-x-2 text-blue-600 dark:text-blue-400">
               <Shield className="h-8 w-8" />
-              <span className="text-xl font-bold">SecureCheck</span>
+              <span className="text-xl font-bold">Pw Check</span>
             </Link>
             <div className="flex items-center space-x-4">
               <Badge variant="outline" className="bg-green-50 text-green-700 border-green-200">
@@ -182,7 +182,7 @@ export default function PasswordBestPractices() {
             </p>
             <p>
               Reinforce adoption by measuring password reuse rates and triggering friendly nudges before compliance audits. Pair
-              SecureCheck&apos;s analysis with automated breach monitoring so high-risk passwords are rotated quickly without the
+              Pw Check&apos;s analysis with automated breach monitoring so high-risk passwords are rotated quickly without the
               fatigue of scheduled resets.
             </p>
           </div>

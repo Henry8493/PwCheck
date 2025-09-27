@@ -5,7 +5,7 @@ import { Badge } from '@/components/ui/badge';
 
 export default function PrivacyPolicy() {
   useEffect(() => {
-    document.title = 'SecureCheck Privacy Policy';
+    document.title = 'Pw Check Privacy Policy';
 
     let metaDescription = document.querySelector('meta[name="description"]');
     if (!metaDescription) {
@@ -15,7 +15,7 @@ export default function PrivacyPolicy() {
     }
     metaDescription.setAttribute(
       'content',
-      'Learn how SecureCheck protects your privacy. All password analysis runs locally, with no tracking, logging, or data storage.'
+      'Learn how Pw Check protects your privacy. All password analysis runs locally, with no tracking, logging, or data storage.'
     );
 
     const addMetaTag = (property: string, content: string) => {
@@ -28,7 +28,7 @@ export default function PrivacyPolicy() {
       metaTag.setAttribute('content', content);
     };
 
-    addMetaTag('og:title', 'SecureCheck Privacy Policy');
+    addMetaTag('og:title', 'Pw Check Privacy Policy');
     addMetaTag('og:description', 'Your passwords never leave the browser. Read our commitment to privacy, transparency, and compliance.');
     addMetaTag('og:type', 'website');
   }, []);
@@ -38,7 +38,7 @@ export default function PrivacyPolicy() {
       title: 'No Credential Collection',
       icon: LockKeyhole,
       content:
-        'Passwords you analyse with SecureCheck are processed entirely within your browser session. We do not transmit, capture, or store any credential data.'
+        'Passwords you analyse with Pw Check are processed entirely within your browser session. We do not transmit, capture, or store any credential data.'
     },
     {
       title: 'Zero Third-party Trackers',
@@ -50,13 +50,13 @@ export default function PrivacyPolicy() {
       title: 'Transparent Infrastructure',
       icon: Server,
       content:
-        'SecureCheck is a static web application. Our servers deliver the code, and the rest of the experience—including compliance checks—runs locally.'
+        'Pw Check is a static web application. Our servers deliver the code, and the rest of the experience—including compliance checks—runs locally.'
     },
     {
       title: 'Audit-ready Documentation',
       icon: FileCheck2,
       content:
-        'Need evidence for an internal privacy assessment? Export this policy along with SecureCheck reports to demonstrate compliance with privacy principles.'
+        'Need evidence for an internal privacy assessment? Export this policy along with Pw Check reports to demonstrate compliance with privacy principles.'
     }
   ];
 
@@ -67,7 +67,7 @@ export default function PrivacyPolicy() {
           <div className="flex justify-between items-center h-16">
             <Link href="/" className="flex items-center space-x-2 text-emerald-600 dark:text-emerald-400">
               <Shield className="h-8 w-8" />
-              <span className="text-xl font-bold">SecureCheck</span>
+              <span className="text-xl font-bold">Pw Check</span>
             </Link>
             <div className="flex items-center space-x-4">
               <Badge variant="outline" className="bg-green-50 text-green-700 border-green-200">
@@ -87,7 +87,7 @@ export default function PrivacyPolicy() {
           </div>
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">Privacy Policy</h1>
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            SecureCheck is designed to be privacy-first from day one. This policy explains the minimal data we handle, how we
+            Pw Check is designed to be privacy-first from day one. This policy explains the minimal data we handle, how we
             protect it, and the choices you have when using the service.
           </p>
         </div>
@@ -114,12 +114,12 @@ export default function PrivacyPolicy() {
         <section className="mt-16 bg-white/80 dark:bg-gray-900/80 rounded-2xl shadow-lg p-8">
           <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Data Subject Rights</h2>
           <p className="text-gray-600 dark:text-gray-300 mb-4">
-            Because SecureCheck does not store personal data, there is no account to delete or export. If you contact us, we
+            Because Pw Check does not store personal data, there is no account to delete or export. If you contact us, we
             store your email solely to respond to the enquiry. You may request deletion at any time by replying to our email or
-            writing to privacy@securecheck.app.
+            writing to privacy@pwcheck.app.
           </p>
           <p className="text-gray-600 dark:text-gray-300">
-            We periodically review this policy and will timestamp any material changes. Continued use of SecureCheck after
+            We periodically review this policy and will timestamp any material changes. Continued use of Pw Check after
             updates constitutes acceptance of the revised terms.
           </p>
         </section>

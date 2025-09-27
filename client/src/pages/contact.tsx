@@ -9,7 +9,7 @@ import { Input } from '@/components/ui/input';
 
 export default function Contact() {
   useEffect(() => {
-    document.title = 'Contact SecureCheck';
+    document.title = 'Contact Pw Check';
 
     let metaDescription = document.querySelector('meta[name="description"]');
     if (!metaDescription) {
@@ -19,7 +19,7 @@ export default function Contact() {
     }
     metaDescription.setAttribute(
       'content',
-      'Contact the SecureCheck team for support, partnerships, or compliance questions. We respond within two business days.'
+      'Contact the Pw Check team for support, partnerships, or compliance questions. We respond within two business days.'
     );
 
     const addMetaTag = (property: string, content: string) => {
@@ -32,8 +32,8 @@ export default function Contact() {
       metaTag.setAttribute('content', content);
     };
 
-    addMetaTag('og:title', 'Contact SecureCheck');
-    addMetaTag('og:description', 'Reach the SecureCheck team for product support, enterprise onboarding, or media enquiries.');
+    addMetaTag('og:title', 'Contact Pw Check');
+    addMetaTag('og:description', 'Reach the Pw Check team for product support, enterprise onboarding, or media enquiries.');
     addMetaTag('og:type', 'website');
   }, []);
 
@@ -42,8 +42,8 @@ export default function Contact() {
       title: 'Email',
       description: 'General support and enterprise onboarding questions. Expect a response within two business days.',
       icon: Mail,
-      value: 'hello@securecheck.app',
-      href: 'mailto:hello@securecheck.app'
+      value: 'hello@pwcheck.app',
+      href: 'mailto:hello@pwcheck.app'
     },
     {
       title: 'Phone',
@@ -54,10 +54,10 @@ export default function Contact() {
     },
     {
       title: 'Community',
-      description: 'Join the SecureCheck community chat to share feedback and request new features.',
+      description: 'Join the Pw Check community chat to share feedback and request new features.',
       icon: MessageSquare,
-      value: 'community.securecheck.app',
-      href: 'https://community.securecheck.app'
+      value: 'community.pwcheck.app',
+      href: 'https://community.pwcheck.app'
     }
   ];
 
@@ -68,7 +68,7 @@ export default function Contact() {
           <div className="flex justify-between items-center h-16">
             <Link href="/" className="flex items-center space-x-2 text-indigo-600 dark:text-indigo-400">
               <Shield className="h-8 w-8" />
-              <span className="text-xl font-bold">SecureCheck</span>
+              <span className="text-xl font-bold">Pw Check</span>
             </Link>
             <div className="flex items-center space-x-4">
               <Badge variant="outline" className="bg-green-50 text-green-700 border-green-200">
@@ -86,7 +86,7 @@ export default function Contact() {
               <Send className="h-12 w-12 text-indigo-600 dark:text-indigo-400" />
             </div>
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">Contact SecureCheck</h1>
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">Contact Pw Check</h1>
           <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
             We are here to help with onboarding, compliance questions, and partnership opportunities. Choose the channel that
             suits you best.
@@ -159,7 +159,7 @@ export default function Contact() {
                 <div>
                   <CardTitle className="text-xl">Registered Office</CardTitle>
                   <div className="mt-3 text-gray-600 dark:text-gray-300 space-y-1">
-                    <p>SecureCheck Ltd.</p>
+                    <p>Pw Check Ltd.</p>
                     <p>221B Password Lane</p>
                     <p>London, UK</p>
                   </div>

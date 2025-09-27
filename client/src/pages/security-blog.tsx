@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 
 export default function SecurityBlog() {
   useEffect(() => {
-    document.title = 'SecureCheck Security Blog | Password Intelligence';
+    document.title = 'Pw Check Security Blog | Password Intelligence';
 
     let metaDescription = document.querySelector('meta[name="description"]');
     if (!metaDescription) {
@@ -17,7 +17,7 @@ export default function SecurityBlog() {
     }
     metaDescription.setAttribute(
       'content',
-      'Read expert analysis on password security, breach trends, and compliance insights from the SecureCheck research team.'
+      'Read expert analysis on password security, breach trends, and compliance insights from the Pw Check research team.'
     );
 
     const addMetaTag = (property: string, content: string) => {
@@ -30,7 +30,7 @@ export default function SecurityBlog() {
       metaTag.setAttribute('content', content);
     };
 
-    addMetaTag('og:title', 'SecureCheck Security Blog | Password Intelligence');
+    addMetaTag('og:title', 'Pw Check Security Blog | Password Intelligence');
     addMetaTag('og:description', 'Insights on password breaches, compliance frameworks, and authentication UX.');
     addMetaTag('og:type', 'website');
   }, []);
@@ -63,7 +63,7 @@ export default function SecurityBlog() {
     },
     {
       title: 'Product release spotlights',
-      description: 'Discover new SecureCheck features that automate reporting, export evidence, and simplify collaboration.'
+      description: 'Discover new Pw Check features that automate reporting, export evidence, and simplify collaboration.'
     },
     {
       title: 'Compliance playbooks',
@@ -78,7 +78,7 @@ export default function SecurityBlog() {
           <div className="flex justify-between items-center h-16">
             <Link href="/" className="flex items-center space-x-2 text-orange-600 dark:text-orange-400">
               <Shield className="h-8 w-8" />
-              <span className="text-xl font-bold">SecureCheck</span>
+              <span className="text-xl font-bold">Pw Check</span>
             </Link>
             <div className="flex items-center space-x-4">
               <Badge variant="outline" className="bg-green-50 text-green-700 border-green-200">
@@ -96,7 +96,7 @@ export default function SecurityBlog() {
               <PenSquare className="h-12 w-12 text-orange-600 dark:text-orange-400" />
             </div>
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">SecureCheck Security Blog</h1>
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">Pw Check Security Blog</h1>
           <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
             Curated research, playbooks, and tactics from our password security specialists. Subscribe for monthly insights that
             help you stay ahead of attackers and compliance demands.
@@ -134,7 +134,7 @@ export default function SecurityBlog() {
             <div>
               <h2 className="text-3xl font-semibold text-gray-900 dark:text-white mb-4">Join the Newsletter</h2>
               <p className="text-gray-600 dark:text-gray-300 mb-6">
-                Get one thoughtfully crafted email per month from the SecureCheck research desk. No spam, no fluff—just the
+                Get one thoughtfully crafted email per month from the Pw Check research desk. No spam, no fluff—just the
                 actionable intelligence you need for the next board update or audit.
               </p>
               <Button className="bg-orange-600 hover:bg-orange-700 text-white">Subscribe</Button>

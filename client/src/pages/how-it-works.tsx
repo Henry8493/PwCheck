@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 
 export default function HowItWorks() {
   useEffect(() => {
-    document.title = 'How SecureCheck Works | Password Analysis Workflow';
+    document.title = 'How Pw Check Works | Password Analysis Workflow';
 
     let metaDescription = document.querySelector('meta[name="description"]');
     if (!metaDescription) {
@@ -17,7 +17,7 @@ export default function HowItWorks() {
     }
     metaDescription.setAttribute(
       'content',
-      'Understand SecureCheck\'s privacy-first password analysis workflow, scoring methodology, and compliance-ready reporting.'
+      'Understand Pw Check\'s privacy-first password analysis workflow, scoring methodology, and compliance-ready reporting.'
     );
 
     const addMetaTag = (property: string, content: string) => {
@@ -30,7 +30,7 @@ export default function HowItWorks() {
       metaTag.setAttribute('content', content);
     };
 
-    addMetaTag('og:title', 'How SecureCheck Works | Password Analysis Workflow');
+    addMetaTag('og:title', 'How Pw Check Works | Password Analysis Workflow');
     addMetaTag('og:description', 'Explore our privacy-first architecture and compliance scoring pipeline.');
     addMetaTag('og:type', 'website');
   }, []);
@@ -38,7 +38,7 @@ export default function HowItWorks() {
   const stages = [
     {
       title: 'Client-side Evaluation',
-      description: 'All password checks run locally in the browser. Nothing is transmitted or stored on SecureCheck servers.',
+      description: 'All password checks run locally in the browser. Nothing is transmitted or stored on Pw Check servers.',
       icon: Lock
     },
     {
@@ -67,7 +67,7 @@ export default function HowItWorks() {
           <div className="flex justify-between items-center h-16">
             <Link href="/" className="flex items-center space-x-2 text-cyan-600 dark:text-cyan-400">
               <Shield className="h-8 w-8" />
-              <span className="text-xl font-bold">SecureCheck</span>
+              <span className="text-xl font-bold">Pw Check</span>
             </Link>
             <div className="flex items-center space-x-4">
               <Badge variant="outline" className="bg-green-50 text-green-700 border-green-200">
@@ -85,9 +85,9 @@ export default function HowItWorks() {
               <Workflow className="h-12 w-12 text-cyan-600 dark:text-cyan-400" />
             </div>
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">How SecureCheck Works</h1>
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">How Pw Check Works</h1>
           <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            SecureCheck combines client-side privacy, up-to-date compliance logic, and intuitive reporting. Learn how the tool
+            Pw Check combines client-side privacy, up-to-date compliance logic, and intuitive reporting. Learn how the tool
             guides teams from password capture to audit-ready documentation in seconds.
           </p>
         </div>
@@ -122,12 +122,12 @@ export default function HowItWorks() {
             <div>
               <h2 className="text-3xl font-semibold text-gray-900 dark:text-white mb-4">Privacy-first Architecture</h2>
               <p className="text-gray-600 dark:text-gray-300 mb-6">
-                Your credentials never leave the device. SecureCheck leverages modern browser APIs, Web Crypto, and optimised
+                Your credentials never leave the device. Pw Check leverages modern browser APIs, Web Crypto, and optimised
                 datasets to evaluate password strength and compliance locally without risking leakage.
               </p>
               <Link href="/">
                 <Button className="bg-cyan-600 hover:bg-cyan-700 text-white">
-                  Try SecureCheck Now
+                  Try Pw Check Now
                   <ArrowRight className="h-4 w-4 ml-2" />
                 </Button>
               </Link>

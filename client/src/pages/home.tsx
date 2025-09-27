@@ -115,7 +115,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div>
-              <h3 className="font-semibold mb-3">SecureCheck</h3>
+              <h3 className="font-semibold mb-3">Pw Check</h3>
               <p className="text-sm text-muted-foreground">
                 Professional password strength analysis with compliance-based scoring.
               </p>
@@ -181,7 +181,7 @@ export default function Home() {
           </div>
           
           <div className="mt-8 pt-8 border-t border-border text-center text-sm text-muted-foreground">
-            <p>© 2024 SecureCheck. All rights reserved. Open source and privacy-first password analysis.</p>
+            <p>© 2024 Pw Check. All rights reserved. Open source and privacy-first password analysis.</p>
           </div>
         </div>
       </footer>

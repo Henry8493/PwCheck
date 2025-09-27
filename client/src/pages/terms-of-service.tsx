@@ -5,7 +5,7 @@ import { Badge } from '@/components/ui/badge';
 
 export default function TermsOfService() {
   useEffect(() => {
-    document.title = 'SecureCheck Terms of Service';
+    document.title = 'Pw Check Terms of Service';
 
     let metaDescription = document.querySelector('meta[name="description"]');
     if (!metaDescription) {
@@ -15,7 +15,7 @@ export default function TermsOfService() {
     }
     metaDescription.setAttribute(
       'content',
-      'Review the terms of service for SecureCheck, including acceptable use, availability, and support commitments.'
+      'Review the terms of service for Pw Check, including acceptable use, availability, and support commitments.'
     );
 
     const addMetaTag = (property: string, content: string) => {
@@ -28,8 +28,8 @@ export default function TermsOfService() {
       metaTag.setAttribute('content', content);
     };
 
-    addMetaTag('og:title', 'SecureCheck Terms of Service');
-    addMetaTag('og:description', 'Understand acceptable use, uptime, warranty disclaimers, and support for SecureCheck.');
+    addMetaTag('og:title', 'Pw Check Terms of Service');
+    addMetaTag('og:description', 'Understand acceptable use, uptime, warranty disclaimers, and support for Pw Check.');
     addMetaTag('og:type', 'website');
   }, []);
 
@@ -37,12 +37,12 @@ export default function TermsOfService() {
     {
       title: 'Service Description',
       content:
-        'SecureCheck provides browser-based password analysis. The service is delivered on an as-is basis and may evolve as we release new features.'
+        'Pw Check provides browser-based password analysis. The service is delivered on an as-is basis and may evolve as we release new features.'
     },
     {
       title: 'Acceptable Use',
       content:
-        'You agree not to use SecureCheck for unlawful activity or to process credentials you are not authorised to audit.'
+        'You agree not to use Pw Check for unlawful activity or to process credentials you are not authorised to audit.'
     },
     {
       title: 'Availability',
@@ -52,12 +52,12 @@ export default function TermsOfService() {
     {
       title: 'Warranty Disclaimer',
       content:
-        'SecureCheck disclaims all implied warranties, including fitness for a particular purpose. Use of the tool is at your own risk.'
+        'Pw Check disclaims all implied warranties, including fitness for a particular purpose. Use of the tool is at your own risk.'
     },
     {
       title: 'Limitation of Liability',
       content:
-        'To the extent permitted by law, SecureCheck shall not be liable for indirect, incidental, or consequential damages arising from use of the service.'
+        'To the extent permitted by law, Pw Check shall not be liable for indirect, incidental, or consequential damages arising from use of the service.'
     },
     {
       title: 'Governing Law',
@@ -73,7 +73,7 @@ export default function TermsOfService() {
           <div className="flex justify-between items-center h-16">
             <Link href="/" className="flex items-center space-x-2 text-slate-700 dark:text-slate-300">
               <Shield className="h-8 w-8" />
-              <span className="text-xl font-bold">SecureCheck</span>
+              <span className="text-xl font-bold">Pw Check</span>
             </Link>
             <div className="flex items-center space-x-4">
               <Badge variant="outline" className="bg-green-50 text-green-700 border-green-200">
@@ -93,7 +93,7 @@ export default function TermsOfService() {
           </div>
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">Terms of Service</h1>
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            These terms outline your rights and responsibilities when using SecureCheck. Please read them carefully before
+            These terms outline your rights and responsibilities when using Pw Check. Please read them carefully before
             relying on the service for security or compliance workflows.
           </p>
         </div>
@@ -116,7 +116,7 @@ export default function TermsOfService() {
           <div className="flex items-start space-x-3 text-gray-600 dark:text-gray-300">
             <LifeBuoy className="h-6 w-6 text-slate-600 dark:text-slate-300 mt-1" />
             <span>
-              Email <a href="mailto:legal@securecheck.app" className="text-slate-700 dark:text-slate-200 underline">legal@securecheck.app</a>{' '}
+              Email <a href="mailto:legal@pwcheck.app" className="text-slate-700 dark:text-slate-200 underline">legal@pwcheck.app</a>{' '}
               or write to our compliance team for clarification and change requests.
             </span>
           </div>
