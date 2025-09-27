@@ -1,11 +1,10 @@
 import { useEffect } from 'react';
-import { Link } from 'wouter';
-import { Shield, Mail, PhoneCall, MessageSquare, MapPin, Send } from 'lucide-react';
-import { Badge } from '@/components/ui/badge';
+import { Mail, PhoneCall, MessageSquare, MapPin, Send } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 import { Input } from '@/components/ui/input';
+import { SiteHeader } from '@/components/site-header';
 
 export default function Contact() {
   useEffect(() => {
@@ -63,21 +62,7 @@ export default function Contact() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-sky-50 to-indigo-100 dark:from-slate-900 dark:to-indigo-950">
-      <nav className="bg-white dark:bg-gray-900 shadow-sm border-b">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <Link href="/" className="flex items-center space-x-2 text-indigo-600 dark:text-indigo-400">
-              <Shield className="h-8 w-8" />
-              <span className="text-xl font-bold">Pw Check</span>
-            </Link>
-            <div className="flex items-center space-x-4">
-              <Badge variant="outline" className="bg-green-50 text-green-700 border-green-200">
-                100% Private
-              </Badge>
-            </div>
-          </div>
-        </div>
-      </nav>
+      <SiteHeader />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="text-center mb-16">
