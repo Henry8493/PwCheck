@@ -101,7 +101,7 @@ export default function TermsOfService() {
           <div className="flex items-start space-x-3 text-gray-600 dark:text-gray-300">
             <LifeBuoy className="h-6 w-6 text-slate-600 dark:text-slate-300 mt-1" />
             <span>
-              Email <a href="mailto:legal@pwcheck.app" className="text-slate-700 dark:text-slate-200 underline">legal@pwcheck.app</a>{' '}
+              Email <a href="mailto:legal@pwcheck.app" className="text-slate-700 dark:text-slate-200 underline">legal@pwcheck.com</a>{' '}
               or write to our compliance team for clarification and change requests.
             </span>
           </div>
