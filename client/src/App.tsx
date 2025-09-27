@@ -17,6 +17,9 @@ import HowItWorks from "@/pages/how-it-works";
 import PrivacyPolicy from "@/pages/privacy-policy";
 import TermsOfService from "@/pages/terms-of-service";
 import Contact from "@/pages/contact";
+import UsePasswordManager from "@/pages/security/use-password-manager";
+import EnableTwoFactorAuthentication from "@/pages/security/enable-two-factor-authentication";
+import AvoidPasswordReuse from "@/pages/security/avoid-password-reuse";
 
 function Router() {
   return (
@@ -30,6 +33,12 @@ function Router() {
       <Route path="/password-best-practices" component={PasswordBestPractices} />
       <Route path="/compliance-guides" component={ComplianceGuides} />
       <Route path="/security-blog" component={SecurityBlog} />
+      <Route path="/security/use-password-manager" component={UsePasswordManager} />
+      <Route
+        path="/security/enable-two-factor-authentication"
+        component={EnableTwoFactorAuthentication}
+      />
+      <Route path="/security/avoid-password-reuse" component={AvoidPasswordReuse} />
       <Route path="/how-it-works" component={HowItWorks} />
       <Route path="/privacy-policy" component={PrivacyPolicy} />
       <Route path="/terms-of-service" component={TermsOfService} />

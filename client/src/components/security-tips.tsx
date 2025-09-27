@@ -1,21 +1,28 @@
 import { Card } from '@/components/ui/card';
+import { Link } from 'wouter';
 
 export function SecurityTips() {
   const tips = [
     {
       title: 'Use a Password Manager',
       description: 'Generate and store unique passwords for every account',
-      tooltip: 'Click to learn more about password managers'
+      tooltip: 'Click to learn more about password managers',
+      href: '/security/use-password-manager',
+      testId: 'security-tip-password-manager'
     },
     {
       title: 'Enable 2FA',
       description: 'Add an extra layer of security to your accounts',
-      tooltip: 'Learn about two-factor authentication'
+      tooltip: 'Learn about two-factor authentication',
+      href: '/security/enable-two-factor-authentication',
+      testId: 'security-tip-2fa'
     },
     {
       title: 'Avoid Password Reuse',
       description: 'Never use the same password across multiple sites',
-      tooltip: 'Understand password reuse risks'
+      tooltip: 'Understand password reuse risks',
+      href: '/security/avoid-password-reuse',
+      testId: 'security-tip-reuse'
     }
   ];
 
@@ -24,15 +31,18 @@ export function SecurityTips() {
       <h3 className="text-lg font-semibold mb-4">Security Tips</h3>
       <div className="space-y-3">
         {tips.map((tip, index) => (
-          <div
+          <Link
             key={index}
-            className="p-3 bg-muted rounded-lg cursor-pointer hover:bg-accent transition-colors"
+            href={tip.href}
+            className="block"
             title={tip.tooltip}
-            data-testid={`security-tip-${index}`}
+            data-testid={tip.testId}
           >
-            <h4 className="font-medium text-sm">{tip.title}</h4>
-            <p className="text-xs text-muted-foreground">{tip.description}</p>
-          </div>
+            <Card className="p-3 bg-muted hover:bg-accent transition-colors border-none shadow-none">
+              <h4 className="font-medium text-sm text-foreground">{tip.title}</h4>
+              <p className="text-xs text-muted-foreground">{tip.description}</p>
+            </Card>
+          </Link>
         ))}
       </div>
     </div>
