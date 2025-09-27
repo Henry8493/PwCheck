@@ -6,13 +6,33 @@ import { PasswordGenerator } from '@/components/password-generator';
 import { PrivacyNotice } from '@/components/privacy-notice';
 import { SecurityTips } from '@/components/security-tips';
 import { MethodologySection } from '@/components/methodology-section';
-import { SharedHeader } from '@/components/shared-header';
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800">
-      {/* Unified Header */}
-      <SharedHeader logoColor="text-blue-600 dark:text-blue-400" />
+    <div className="min-h-screen bg-background text-foreground">
+      {/* Header */}
+      <header className="border-b border-border bg-card">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center space-x-3">
+              <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+                <Lock className="w-5 h-5 text-primary-foreground" />
+              </div>
+              <div>
+                <h1 className="text-xl font-bold" data-testid="app-title">SecureCheck</h1>
+                <p className="text-sm text-muted-foreground">Professional Password Analyzer</p>
+              </div>
+            </div>
+            
+            <div className="flex items-center space-x-2 bg-muted px-3 py-2 rounded-lg">
+              <CheckCircle className="w-4 h-4 text-success" />
+              <span className="text-sm font-medium" data-testid="privacy-badge">
+                100% Private - No Data Leaves Your Browser
+              </span>
+            </div>
+          </div>
+        </div>
+      </header>
 
       {/* Hero Section */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
