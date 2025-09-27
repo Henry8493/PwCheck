@@ -181,7 +181,7 @@ export default function Home() {
           </div>
           
           <div className="mt-8 pt-8 border-t border-gray-200 dark:border-gray-700 text-center text-sm text-gray-600 dark:text-gray-300">
-            <p>© 2024 Pw Check. All rights reserved. Open source and privacy-first password analysis.</p>
+            <p>© {new Date().getFullYear()} Pw Check. All rights reserved. <a href="https://github.com/Henry8493/PwCheck" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline">Open source</a> and privacy-first password analysis.</p>
           </div>
         </div>
       </footer>
