@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { Link } from 'wouter';
 import { Shield, PenSquare, TrendingUp, AlarmClock, GraduationCap, ArrowRight } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -40,19 +41,22 @@ export default function SecurityBlog() {
       title: 'Why Password Length Matters More Than Complexity',
       summary: 'We analyse 10+ billion leaked credentials to show why length-first policies slash account takeover risk.',
       category: 'Research',
-      readTime: '8 min read'
+      readTime: '8 min read',
+      href: '/security/password-length-matters'
     },
     {
       title: 'Designing Password Policies for a Remote Workforce',
       summary: 'See how distributed teams can adopt passphrases, MFA, and secure recovery flows without harming productivity.',
       category: 'Strategy',
-      readTime: '6 min read'
+      readTime: '6 min read',
+      href: '/security/password-policies-remote-workforce'
     },
     {
       title: 'A Practical Checklist for Annual Compliance Audits',
       summary: 'Use our evidence templates to prove ongoing password hygiene across NIST, ISO 27001, and PCI DSS scopes.',
       category: 'Compliance',
-      readTime: '7 min read'
+      readTime: '7 min read',
+      href: '/security/compliance-audit-checklist'
     }
   ];
 
@@ -105,9 +109,11 @@ export default function SecurityBlog() {
                   </CardDescription>
                 </CardHeader>
                 <CardFooter className="mt-auto">
-                  <Button variant="link" className="px-0 text-orange-600 dark:text-orange-400">
-                    Read insight
-                    <ArrowRight className="h-4 w-4 ml-2" />
+                  <Button asChild variant="link" className="px-0 text-orange-600 dark:text-orange-400">
+                    <Link href={post.href} className="inline-flex items-center">
+                      Read insight
+                      <ArrowRight className="h-4 w-4 ml-2" />
+                    </Link>
                   </Button>
                 </CardFooter>
               </Card>

@@ -21,6 +21,9 @@ import Contact from "@/pages/contact";
 import UsePasswordManager from "@/pages/security/use-password-manager";
 import EnableTwoFactorAuthentication from "@/pages/security/enable-two-factor-authentication";
 import AvoidPasswordReuse from "@/pages/security/avoid-password-reuse";
+import PasswordLengthMatters from "@/pages/security/password-length-matters";
+import PasswordPoliciesRemoteWorkforce from "@/pages/security/password-policies-remote-workforce";
+import ComplianceAuditChecklist from "@/pages/security/compliance-audit-checklist";
 import PasswordFaq from "@/pages/password-faq";
 
 function ScrollToTop() {
@@ -52,6 +55,12 @@ function Router() {
         component={EnableTwoFactorAuthentication}
       />
       <Route path="/security/avoid-password-reuse" component={AvoidPasswordReuse} />
+      <Route path="/security/password-length-matters" component={PasswordLengthMatters} />
+      <Route
+        path="/security/password-policies-remote-workforce"
+        component={PasswordPoliciesRemoteWorkforce}
+      />
+      <Route path="/security/compliance-audit-checklist" component={ComplianceAuditChecklist} />
       <Route path="/how-it-works" component={HowItWorks} />
       <Route path="/privacy-policy" component={PrivacyPolicy} />
       <Route path="/terms-of-service" component={TermsOfService} />
