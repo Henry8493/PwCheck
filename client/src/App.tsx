@@ -20,11 +20,13 @@ import Contact from "@/pages/contact";
 import UsePasswordManager from "@/pages/security/use-password-manager";
 import EnableTwoFactorAuthentication from "@/pages/security/enable-two-factor-authentication";
 import AvoidPasswordReuse from "@/pages/security/avoid-password-reuse";
+import PasswordFaq from "@/pages/password-faq";
 
 function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
+      <Route path="/password-faq" component={PasswordFaq} />
       <Route path="/nist-password-checker" component={NISTPasswordChecker} />
       <Route path="/gdpr-password-compliance" component={GDPRPasswordCompliance} />
       <Route path="/iso27001-password-rules" component={ISO27001PasswordRules} />
