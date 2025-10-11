@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 import { Input } from '@/components/ui/input';
 import { SiteHeader } from '@/components/site-header';
+import { SiteFooter } from '@/components/site-footer';
 
 export default function Contact() {
   useEffect(() => {
@@ -154,6 +155,7 @@ export default function Contact() {
           </div>
         </div>
       </div>
+      <SiteFooter />
     </div>
   );
 }

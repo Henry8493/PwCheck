@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { CheckCircle, ListChecks, Lock, AlertTriangle, Sparkles } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { SiteHeader } from '@/components/site-header';
+import { SiteFooter } from '@/components/site-footer';
 
 export default function PasswordBestPractices() {
   useEffect(() => {
@@ -173,6 +174,7 @@ export default function PasswordBestPractices() {
           </div>
         </section>
       </div>
+      <SiteFooter />
     </div>
   );
 }

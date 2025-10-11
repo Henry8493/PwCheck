@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { Shield, Scale, LifeBuoy } from 'lucide-react';
 import { SiteHeader } from '@/components/site-header';
+import { SiteFooter } from '@/components/site-footer';
 
 export default function TermsOfService() {
   useEffect(() => {
@@ -107,6 +108,7 @@ export default function TermsOfService() {
           </div>
         </section>
       </div>
+      <SiteFooter />
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { KeyRound, ShieldCheck, UsersRound, LockKeyhole, ClipboardList } from 'lucide-react';
 import { SiteHeader } from '@/components/site-header';
+import { SiteFooter } from '@/components/site-footer';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 
 export default function UsePasswordManager() {
@@ -149,6 +150,7 @@ export default function UsePasswordManager() {
           </Card>
         </section>
       </main>
+      <SiteFooter />
     </div>
   );
 }

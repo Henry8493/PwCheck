@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { Shield, LockKeyhole, EyeOff, Server, FileCheck2 } from 'lucide-react';
 import { SiteHeader } from '@/components/site-header';
+import { SiteFooter } from '@/components/site-footer';
 
 export default function PrivacyPolicy() {
   useEffect(() => {
@@ -109,6 +110,7 @@ export default function PrivacyPolicy() {
           </p>
         </section>
       </div>
+      <SiteFooter />
     </div>
   );
 }

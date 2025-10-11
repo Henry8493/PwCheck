@@ -4,6 +4,7 @@ import { Workflow, Lock, Gauge, ScrollText, Users, ArrowRight } from 'lucide-rea
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { SiteHeader } from '@/components/site-header';
+import { SiteFooter } from '@/components/site-footer';
 
 export default function HowItWorks() {
   useEffect(() => {
@@ -174,6 +175,7 @@ export default function HowItWorks() {
           </div>
         </section>
       </div>
+      <SiteFooter />
     </div>
   );
 }

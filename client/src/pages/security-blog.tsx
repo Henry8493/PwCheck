@@ -3,6 +3,7 @@ import { Shield, PenSquare, TrendingUp, AlarmClock, GraduationCap, ArrowRight } 
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { SiteHeader } from '@/components/site-header';
+import { SiteFooter } from '@/components/site-footer';
 
 export default function SecurityBlog() {
   useEffect(() => {
@@ -170,6 +171,7 @@ export default function SecurityBlog() {
           </div>
         </section>
       </div>
+      <SiteFooter />
     </div>
   );
 }
