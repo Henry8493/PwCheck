@@ -1190,11 +1190,11 @@ const FAQ_ENTRIES: ReadonlyArray<FaqEntry> = [
     category: 'Site Transparency',
     question: 'Is everything processed client-side? What telemetry, if any, do you collect?',
     answer:
-      'All strength calculations run locally in the browser using open-source libraries, and only anonymized event counts are sent to monitor uptime and feature usage. We do not log IP addresses with password checks, nor do we collect personally identifiable information from the tool. You can review our privacy policy and GitHub repository to verify the implementation and opt out of telemetry via the settings panel.',
+      'All strength calculations run locally in the browser using open-source libraries, and only anonymized event counts are sent to monitor uptime and feature usage. We do not log IP addresses with password checks, nor do we collect personally identifiable information from the tool. You can review our privacy policy and GitHub repository to verify the implementation.',
     keyTakeaways: [
       'Password analysis is performed entirely client-side with open libraries',
       'Telemetry is limited to anonymous event counts for reliability tracking',
-      'Users can inspect the code and disable telemetry through privacy settings'
+      'Users can inspect the OSS code on Github'
     ],
     relatedQuestions: [
       'do-you-store-password-checker-input',
