@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { AlertTriangle, RefreshCcw, ShieldX, Database, ClipboardCheck } from 'lucide-react';
 import { SiteHeader } from '@/components/site-header';
+import { SiteFooter } from '@/components/site-footer';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 
 export default function AvoidPasswordReuse() {
@@ -149,6 +150,7 @@ export default function AvoidPasswordReuse() {
           </Card>
         </section>
       </main>
+      <SiteFooter />
     </div>
   );
 }

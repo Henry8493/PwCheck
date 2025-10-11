@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { SiteHeader } from '@/components/site-header';
+import { SiteFooter } from '@/components/site-footer';
 
 export default function GDPRPasswordCompliance() {
   useEffect(() => {
@@ -258,6 +259,7 @@ export default function GDPRPasswordCompliance() {
           </Link>
         </section>
       </div>
+      <SiteFooter />
     </div>
   );
 }

@@ -4,6 +4,7 @@ import { CheckCircle, AlertTriangle, ArrowRight, Lock } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { SiteHeader } from '@/components/site-header';
+import { SiteFooter } from '@/components/site-footer';
 
 export default function NISTPasswordChecker() {
   useEffect(() => {
@@ -192,6 +193,7 @@ export default function NISTPasswordChecker() {
           </Link>
         </section>
       </div>
+      <SiteFooter />
     </div>
   );
 }

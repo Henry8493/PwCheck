@@ -7,6 +7,7 @@ import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { SiteHeader } from '@/components/site-header';
+import { SiteFooter } from '@/components/site-footer';
 
 export default function ComplianceComparison() {
   const [selectedStandards, setSelectedStandards] = useState<string[]>(['NIST', 'GDPR', 'ISO27001', 'PCI-DSS']);
@@ -369,6 +370,7 @@ export default function ComplianceComparison() {
           </Link>
         </section>
       </div>
+      <SiteFooter />
     </div>
   );
 }

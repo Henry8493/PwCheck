@@ -3,6 +3,7 @@ import { BookOpen, Layers, Target, ClipboardCheck, Clock3 } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { SiteHeader } from '@/components/site-header';
+import { SiteFooter } from '@/components/site-footer';
 
 export default function ComplianceGuides() {
   useEffect(() => {
@@ -157,6 +158,7 @@ export default function ComplianceGuides() {
           </div>
         </section>
       </div>
+      <SiteFooter />
     </div>
   );
 }

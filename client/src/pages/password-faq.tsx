@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react';
 import { Search, ChevronDown, ChevronUp } from 'lucide-react';
 import { SiteHeader } from '@/components/site-header';
+import { SiteFooter } from '@/components/site-footer';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
@@ -151,6 +152,7 @@ export default function PasswordFaq() {
           )}
         </div>
       </div>
+      <SiteFooter />
     </div>
   );
 }

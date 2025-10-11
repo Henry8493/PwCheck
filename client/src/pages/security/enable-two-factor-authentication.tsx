@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { ShieldAlert, Smartphone, QrCode, KeySquare, BellRing } from 'lucide-react';
 import { SiteHeader } from '@/components/site-header';
+import { SiteFooter } from '@/components/site-footer';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 
 export default function EnableTwoFactorAuthentication() {
@@ -148,6 +149,7 @@ export default function EnableTwoFactorAuthentication() {
           </Card>
         </section>
       </main>
+      <SiteFooter />
     </div>
   );
 }
