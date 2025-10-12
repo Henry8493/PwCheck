@@ -79,7 +79,7 @@ export default function SecurityBlog() {
     <div className="min-h-screen bg-gradient-to-br from-amber-50 to-orange-100 dark:from-slate-900 dark:to-orange-950">
       <SiteHeader />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div id="main-content" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="text-center mb-16">
           <div className="flex justify-center mb-6">
             <div className="p-3 bg-orange-100 dark:bg-orange-900 rounded-full">

@@ -88,7 +88,7 @@ export default function ComplianceAuditChecklist() {
     <div className="min-h-screen bg-gradient-to-br from-amber-50 via-yellow-100 to-orange-100 dark:from-slate-950 dark:via-amber-950 dark:to-orange-950 text-foreground">
       <SiteHeader />
 
-      <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-16">
+      <main id="main-content" className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-16">
         <section className="text-center space-y-6">
           <div className="flex justify-center">
             <div className="p-4 rounded-full bg-amber-100 dark:bg-amber-900">

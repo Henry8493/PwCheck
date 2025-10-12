@@ -1,40 +1,35 @@
-import { useEffect } from 'react';
 import { Link } from 'wouter';
 import { Workflow, Lock, Gauge, ScrollText, Users, ArrowRight } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { SiteHeader } from '@/components/site-header';
 import { SiteFooter } from '@/components/site-footer';
+import { usePageSeo } from '@/hooks/use-page-seo';
 
 export default function HowItWorks() {
-  useEffect(() => {
-    document.title = 'How Pw Check Works | Password Analysis Workflow';
+  const canonicalPath = '/how-it-works';
+  const canonicalUrl =
+    typeof window !== 'undefined'
+      ? new URL(canonicalPath, window.location.origin).toString()
+      : '';
 
-    let metaDescription = document.querySelector('meta[name="description"]');
-    if (!metaDescription) {
-      metaDescription = document.createElement('meta');
-      metaDescription.setAttribute('name', 'description');
-      document.head.appendChild(metaDescription);
-    }
-    metaDescription.setAttribute(
-      'content',
-      'Understand Pw Check\'s privacy-first password analysis workflow, scoring methodology, and compliance-ready reporting.'
-    );
-
-    const addMetaTag = (property: string, content: string) => {
-      let metaTag = document.querySelector(`meta[property="${property}"]`);
-      if (!metaTag) {
-        metaTag = document.createElement('meta');
-        metaTag.setAttribute('property', property);
-        document.head.appendChild(metaTag);
-      }
-      metaTag.setAttribute('content', content);
-    };
-
-    addMetaTag('og:title', 'How Pw Check Works | Password Analysis Workflow');
-    addMetaTag('og:description', 'Explore our privacy-first architecture and compliance scoring pipeline.');
-    addMetaTag('og:type', 'website');
-  }, []);
+  usePageSeo({
+    title: 'How Pw Check Works | Password Analysis Workflow',
+    description:
+      "Understand Pw Check's privacy-first password analysis workflow, scoring methodology, and compliance-ready reporting.",
+    canonicalPath,
+    keywords: ['password workflow', 'password analysis', 'compliance reporting', 'security tooling process'],
+    structuredData: canonicalUrl
+      ? {
+          '@context': 'https://schema.org',
+          '@type': 'WebPage',
+          name: 'How Pw Check Works',
+          description:
+            "Understand Pw Check's privacy-first password analysis workflow, scoring methodology, and compliance-ready reporting.",
+          url: canonicalUrl
+        }
+      : undefined
+  });
 
   const stages = [
     {
@@ -65,7 +60,7 @@ export default function HowItWorks() {
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-cyan-100 dark:from-slate-900 dark:to-cyan-950">
       <SiteHeader />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <main id="main-content" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="text-center mb-16">
           <div className="flex justify-center mb-6">
             <div className="p-3 bg-cyan-100 dark:bg-cyan-900 rounded-full">
@@ -174,7 +169,7 @@ export default function HowItWorks() {
             </Card>
           </div>
         </section>
-      </div>
+      </main>
       <SiteFooter />
     </div>
   );

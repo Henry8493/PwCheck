@@ -88,7 +88,7 @@ export default function PasswordLengthMatters() {
     <div className="min-h-screen bg-gradient-to-br from-sky-50 via-indigo-100 to-purple-100 dark:from-slate-950 dark:via-indigo-950 dark:to-purple-950 text-foreground">
       <SiteHeader />
 
-      <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-16">
+      <main id="main-content" className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-16">
         <section className="text-center space-y-6">
           <div className="flex justify-center">
             <div className="p-4 rounded-full bg-indigo-100 dark:bg-indigo-900">

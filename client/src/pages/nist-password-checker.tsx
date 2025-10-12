@@ -1,40 +1,40 @@
-import { useEffect } from 'react';
 import { Link } from 'wouter';
 import { CheckCircle, AlertTriangle, ArrowRight, Lock } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { SiteHeader } from '@/components/site-header';
 import { SiteFooter } from '@/components/site-footer';
+import { usePageSeo } from '@/hooks/use-page-seo';
 
 export default function NISTPasswordChecker() {
-  useEffect(() => {
-    // Set page title and meta description for SEO
-    document.title = 'NIST Password Checker - SP 800-63B Compliance Validator | Pw Check';
-    
-    // Create or update meta description
-    let metaDescription = document.querySelector('meta[name="description"]');
-    if (!metaDescription) {
-      metaDescription = document.createElement('meta');
-      metaDescription.setAttribute('name', 'description');
-      document.head.appendChild(metaDescription);
-    }
-    metaDescription.setAttribute('content', 'Free NIST SP 800-63B password compliance checker. Validate passwords against official NIST guidelines including minimum length, common password detection, and security requirements.');
-    
-    // Add Open Graph tags for social sharing
-    const addMetaTag = (property: string, content: string) => {
-      let metaTag = document.querySelector(`meta[property="${property}"]`);
-      if (!metaTag) {
-        metaTag = document.createElement('meta');
-        metaTag.setAttribute('property', property);
-        document.head.appendChild(metaTag);
-      }
-      metaTag.setAttribute('content', content);
-    };
-    
-    addMetaTag('og:title', 'NIST Password Checker - SP 800-63B Compliance Validator');
-    addMetaTag('og:description', 'Validate your passwords against NIST SP 800-63B guidelines with our free compliance checker.');
-    addMetaTag('og:type', 'website');
-  }, []);
+  const canonicalPath = '/nist-password-checker';
+  const canonicalUrl =
+    typeof window !== 'undefined'
+      ? new URL(canonicalPath, window.location.origin).toString()
+      : '';
+
+  usePageSeo({
+    title: 'NIST Password Checker - SP 800-63B Compliance Validator | Pw Check',
+    description:
+      'Free NIST SP 800-63B password compliance checker. Validate passwords against official NIST guidelines including minimum length, common password detection, and security requirements.',
+    canonicalPath,
+    keywords: [
+      'NIST password checker',
+      'SP 800-63B compliance',
+      'password policy audit',
+      'federal cybersecurity standards'
+    ],
+    structuredData: canonicalUrl
+      ? {
+          '@context': 'https://schema.org',
+          '@type': 'WebPage',
+          name: 'NIST Password Checker',
+          description:
+            'Validate passwords against NIST SP 800-63B digital identity guidelines with the Pw Check compliance analyzer.',
+          url: canonicalUrl
+        }
+      : undefined
+  });
 
   const nistRequirements = [
     {
@@ -75,9 +75,9 @@ export default function NISTPasswordChecker() {
       {/* Navigation */}
       <SiteHeader />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <main id="main-content" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-16">
         {/* Hero Section */}
-        <div className="text-center mb-16">
+        <div className="text-center">
           <div className="flex justify-center mb-6">
             <div className="p-3 bg-blue-100 dark:bg-blue-900 rounded-full">
               <Lock className="h-12 w-12 text-blue-600 dark:text-blue-400" />
@@ -106,8 +106,8 @@ export default function NISTPasswordChecker() {
         </div>
 
         {/* NIST Requirements Section */}
-        <section className="mb-16">
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-white text-center mb-12">
+        <section aria-labelledby="nist-requirements-heading">
+          <h2 id="nist-requirements-heading" className="text-3xl font-bold text-gray-900 dark:text-white text-center mb-12">
             NIST SP 800-63B Password Requirements
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -143,9 +143,9 @@ export default function NISTPasswordChecker() {
         </section>
 
         {/* Benefits Section */}
-        <section className="mb-16">
+        <section aria-labelledby="nist-benefits-heading">
           <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg">
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white text-center mb-8">
+            <h2 id="nist-benefits-heading" className="text-3xl font-bold text-gray-900 dark:text-white text-center mb-8">
               Why Use Our NIST Password Checker?
             </h2>
             <div className="grid md:grid-cols-2 gap-8 items-center">
@@ -164,8 +164,8 @@ export default function NISTPasswordChecker() {
                   About NIST SP 800-63B
                 </h3>
                 <p className="text-blue-800 dark:text-blue-200 leading-relaxed">
-                  NIST Special Publication 800-63B provides guidelines for digital identity authentication. 
-                  It emphasizes user-friendly security practices, moving away from complex composition rules 
+                  NIST Special Publication 800-63B provides guidelines for digital identity authentication.
+                  It emphasizes user-friendly security practices, moving away from complex composition rules
                   in favor of length and uniqueness requirements.
                 </p>
               </div>
@@ -174,8 +174,8 @@ export default function NISTPasswordChecker() {
         </section>
 
         {/* CTA Section */}
-        <section className="text-center bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-12 text-white">
-          <h2 className="text-3xl font-bold mb-4">
+        <section className="text-center bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-12 text-white" aria-labelledby="nist-cta-heading">
+          <h2 id="nist-cta-heading" className="text-3xl font-bold mb-4">
             Ready to Check Your Passwords?
           </h2>
           <p className="text-xl mb-8 opacity-90">
@@ -192,7 +192,7 @@ export default function NISTPasswordChecker() {
             </Button>
           </Link>
         </section>
-      </div>
+      </main>
       <SiteFooter />
     </div>
   );
