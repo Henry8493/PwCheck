@@ -99,7 +99,7 @@ export default function ComplianceGuides() {
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-purple-100 dark:from-gray-900 dark:to-purple-950">
       <SiteHeader />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div id="main-content" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="text-center mb-16">
           <div className="flex justify-center mb-6">
             <div className="p-3 bg-purple-100 dark:bg-purple-900 rounded-full">

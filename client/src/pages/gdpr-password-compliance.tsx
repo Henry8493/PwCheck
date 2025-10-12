@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { Link } from 'wouter';
 import { Shield, CheckCircle, Users, ArrowRight, Lock, Euro } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -6,36 +5,16 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge';
 import { SiteHeader } from '@/components/site-header';
 import { SiteFooter } from '@/components/site-footer';
+import { usePageSeo } from '@/hooks/use-page-seo';
 
 export default function GDPRPasswordCompliance() {
-  useEffect(() => {
-    // Set page title and meta description for SEO
-    document.title = 'GDPR Password Compliance Checker - EU Data Protection Standards | Pw Check';
-    
-    // Create or update meta description
-    let metaDescription = document.querySelector('meta[name="description"]');
-    if (!metaDescription) {
-      metaDescription = document.createElement('meta');
-      metaDescription.setAttribute('name', 'description');
-      document.head.appendChild(metaDescription);
-    }
-    metaDescription.setAttribute('content', 'Ensure GDPR compliance with our password strength checker. Validate passwords meet EU data protection requirements for appropriate security measures and personal data protection.');
-    
-    // Add Open Graph tags for social sharing
-    const addMetaTag = (property: string, content: string) => {
-      let metaTag = document.querySelector(`meta[property="${property}"]`);
-      if (!metaTag) {
-        metaTag = document.createElement('meta');
-        metaTag.setAttribute('property', property);
-        document.head.appendChild(metaTag);
-      }
-      metaTag.setAttribute('content', content);
-    };
-    
-    addMetaTag('og:title', 'GDPR Password Compliance Checker - EU Data Protection Standards');
-    addMetaTag('og:description', 'Validate passwords for GDPR compliance with appropriate security measures and risk-based authentication.');
-    addMetaTag('og:type', 'website');
-  }, []);
+  usePageSeo({
+    title: 'GDPR Password Compliance Checker - EU Data Protection Standards | Pw Check',
+    description:
+      'Ensure GDPR compliance with our password strength checker. Validate passwords meet EU data protection requirements for appropriate security measures and personal data protection.',
+    canonicalPath: '/gdpr-password-compliance',
+    keywords: ['gdpr password compliance', 'eu password security', 'data protection password requirements']
+  });
 
   const gdprRequirements = [
     {
@@ -91,7 +70,7 @@ export default function GDPRPasswordCompliance() {
         }
       />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div id="main-content" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Hero Section */}
         <div className="text-center mb-16">
           <div className="flex justify-center mb-6">

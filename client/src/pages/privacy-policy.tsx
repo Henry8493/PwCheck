@@ -64,7 +64,7 @@ export default function PrivacyPolicy() {
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-emerald-100 dark:from-slate-900 dark:to-emerald-950">
       <SiteHeader />
 
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div id="main-content" className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="text-center mb-16">
           <div className="flex justify-center mb-6">
             <div className="p-3 bg-emerald-100 dark:bg-emerald-900 rounded-full">
