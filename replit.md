@@ -34,6 +34,7 @@ Preferred communication style: Simple, everyday language.
 - **Compliance Checking**: Multi-standard compliance validation (NIST, GDPR, ISO27001, PCI-DSS) with detailed feedback
 - **Password Generation**: Secure password generation with customizable character sets and exclusion options
 - **Breach Detection**: Privacy-preserving password breach checking using Have I Been Pwned API with k-anonymity model
+- **Shareable Reports**: URL-encoded analysis reports that can be shared without exposing passwords, with comprehensive feedback sanitization
 - **Privacy-First Design**: All password processing occurs client-side to ensure user privacy
 
 ## Breach Checking Feature (k-Anonymity Implementation)
@@ -63,6 +64,42 @@ The password breach checking feature allows users to verify if their passwords h
 - **Traffic Light System**: Visual feedback using color-coded states (green=safe, yellow=checking, red=breached)
 - **Transparent Feedback**: Clear breach counts and privacy reminders on every check
 - **Persistent Consent**: User preference saved to localStorage to avoid repeated consent prompts
+
+## Shareable Analysis Reports Feature
+
+### Overview
+The shareable reports feature allows users to share their password analysis results through URL-encoded links without revealing the actual password. This enables viral growth potential while maintaining strict privacy and security standards.
+
+### Privacy-Preserving Architecture
+1. **No Server Storage**: All report data is encoded directly in the URL using base64 encoding - no backend storage required
+2. **Password Exclusion**: The actual password is never included in the shareable data
+3. **Feedback Sanitization**: Compliance feedback is automatically sanitized to remove any password-derived strings before sharing
+4. **Client-Side Only**: Report generation and encoding happens entirely in the browser
+
+### Technical Implementation
+- **Data Encoding**: Base64 URL-safe encoding with automatic padding restoration
+- **Report Route**: `/report/:encodedData` displays shared analysis results
+- **Components**:
+  - `report-utils.ts`: Serialization, deserialization, and feedback sanitization utilities
+  - `ShareableReport.tsx`: Dedicated page for displaying shared analysis results
+  - `ShareReportDialog`: Modal for generating and copying shareable links
+- **Security**:
+  - `sanitizeComplianceFeedback()`: Strips quoted strings, numeric sequences, and password patterns from compliance feedback
+  - Falls back to generic messages if sanitization produces insufficient content
+  - Prevents leakage of password substrings through specific compliance recommendations
+
+### Shareable Data Structure
+- **Analysis Metrics**: Score, strength rating, entropy, length, character type flags, crack time estimates
+- **Compliance Results**: Standard name, pass/fail status, score, sanitized feedback
+- **Breach Check Results**: Breach status and count (if breach checking was performed)
+- **Excluded**: Actual password, specific password patterns, quoted password substrings
+
+### User Experience
+- **One-Click Sharing**: Share button appears after password analysis
+- **Copy to Clipboard**: Quick copy functionality with success toast confirmation
+- **Open in New Tab**: Preview report before sharing
+- **Professional Presentation**: Branded report page with complete analysis breakdown
+- **Invalid Link Handling**: Graceful error display for corrupted or invalid report URLs
 
 ## Development and Build System
 - **Type Safety**: Comprehensive TypeScript configuration with strict mode enabled
