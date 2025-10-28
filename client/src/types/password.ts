@@ -12,6 +12,12 @@ export interface PasswordAnalysis {
   hasDictionaryWords: boolean;
   feedback: string[];
   crackTime: string;
+  breachCheck?: {
+    isChecking: boolean;
+    isBreached: boolean;
+    breachCount: number;
+    error?: string;
+  };
 }
 
 export interface ComplianceResult {

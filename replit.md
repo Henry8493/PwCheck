@@ -33,7 +33,36 @@ Preferred communication style: Simple, everyday language.
 - **Password Analysis**: Client-side password strength evaluation with entropy calculation, pattern detection, and common password checking
 - **Compliance Checking**: Multi-standard compliance validation (NIST, GDPR, ISO27001, PCI-DSS) with detailed feedback
 - **Password Generation**: Secure password generation with customizable character sets and exclusion options
+- **Breach Detection**: Privacy-preserving password breach checking using Have I Been Pwned API with k-anonymity model
 - **Privacy-First Design**: All password processing occurs client-side to ensure user privacy
+
+## Breach Checking Feature (k-Anonymity Implementation)
+
+### Overview
+The password breach checking feature allows users to verify if their passwords have appeared in known data breaches without compromising privacy. This is achieved through a sophisticated k-anonymity model that ensures passwords never leave the user's browser.
+
+### Privacy-Preserving Architecture
+1. **Local Hashing**: Passwords are hashed client-side using SHA-1 via the Web Crypto API (browser-native, no external libraries)
+2. **Partial Hash Transmission**: Only the first 5 characters of the hash are sent to the Have I Been Pwned API
+3. **Local Comparison**: The API returns all password hashes matching those 5 characters (~500-1000 results), and the full hash is compared locally in the browser
+4. **Zero Knowledge**: The API cannot determine which specific password is being checked, maintaining complete user privacy
+
+### Technical Implementation
+- **API Endpoint**: `https://api.pwnedpasswords.com/range/{first5HashChars}`
+- **Hashing Algorithm**: SHA-1 using `crypto.subtle.digest()` (Web Crypto API)
+- **Storage**: User consent is stored in localStorage as `breachCheckConsent`
+- **Components**: 
+  - `BreachCheckingExplainer`: Educational component explaining k-anonymity with step-by-step visualization
+  - `BreachCheckConsentDialog`: Consent modal requiring user understanding before enabling feature
+  - `breach-checker.ts`: Core logic implementing k-anonymity API integration
+  - `crypto-utils.ts`: SHA-1 hashing utilities using Web Crypto API
+
+### User Experience
+- **Educational First**: Users see detailed explanation of k-anonymity before feature activation
+- **Opt-in Consent**: Explicit consent required with checkbox confirmation
+- **Traffic Light System**: Visual feedback using color-coded states (green=safe, yellow=checking, red=breached)
+- **Transparent Feedback**: Clear breach counts and privacy reminders on every check
+- **Persistent Consent**: User preference saved to localStorage to avoid repeated consent prompts
 
 ## Development and Build System
 - **Type Safety**: Comprehensive TypeScript configuration with strict mode enabled
