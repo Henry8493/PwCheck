@@ -180,7 +180,7 @@ export function getReportSummary(reportData: ShareableReportData): string {
     '🔒 Password Strength Report - SecureCheck',
     '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━',
     '',
-    `Overall Score: ${analysis.score}/100 (${analysis.strength.toUpperCase()})`,
+    `Overall Score: ${Math.round(analysis.score)}/100 (${analysis.strength.toUpperCase()})`,
     `Password Length: ${analysis.length} characters`,
     `Entropy: ${analysis.entropy.toFixed(2)} bits`,
     `Estimated Crack Time: ${analysis.crackTime}`,

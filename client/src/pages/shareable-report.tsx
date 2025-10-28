@@ -43,7 +43,7 @@ export default function ShareableReport() {
       try {
         await navigator.share({
           title: 'Password Strength Report - SecureCheck',
-          text: `I analyzed my password strength and scored ${reportData?.analysis.score}/100!`,
+          text: `I analyzed my password strength and scored ${Math.round(reportData?.analysis.score || 0)}/100!`,
           url: window.location.href
         });
       } catch (error) {
@@ -127,7 +127,7 @@ export default function ShareableReport() {
           <Card className={`p-8 border-2 ${strengthColors[analysis.strength]}`} data-testid="overall-score-card">
             <div className="text-center">
               <div className="mb-4">
-                <div className="text-6xl font-bold mb-2">{analysis.score}</div>
+                <div className="text-6xl font-bold mb-2">{Math.round(analysis.score)}</div>
                 <div className="text-2xl font-semibold uppercase tracking-wide">
                   {analysis.strength.replace('-', ' ')}
                 </div>
@@ -241,7 +241,7 @@ export default function ShareableReport() {
                   <div className="flex items-center gap-2">
                     <span className="text-xs text-muted-foreground">Compliance Score:</span>
                     <span className={`font-bold ${compliance.passed ? 'text-success' : 'text-warning'}`}>
-                      {compliance.score}/100
+                      {Math.round(compliance.score)}/100
                     </span>
                   </div>
                 </div>
