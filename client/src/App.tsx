@@ -18,6 +18,7 @@ import HowItWorks from "@/pages/how-it-works";
 import PrivacyPolicy from "@/pages/privacy-policy";
 import TermsOfService from "@/pages/terms-of-service";
 import Contact from "@/pages/contact";
+import ShareableReport from "@/pages/shareable-report";
 import UsePasswordManager from "@/pages/security/use-password-manager";
 import EnableTwoFactorAuthentication from "@/pages/security/enable-two-factor-authentication";
 import AvoidPasswordReuse from "@/pages/security/avoid-password-reuse";
@@ -40,6 +41,7 @@ function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
+      <Route path="/report/:data" component={ShareableReport} />
       <Route path="/password-faq" component={PasswordFaq} />
       <Route path="/nist-password-checker" component={NISTPasswordChecker} />
       <Route path="/gdpr-password-compliance" component={GDPRPasswordCompliance} />

@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
-import { Eye, EyeOff, Shield, AlertTriangle, CheckCircle, Loader2 } from 'lucide-react';
+import { Eye, EyeOff, Shield, AlertTriangle, CheckCircle, Loader2, Share2, Copy, ExternalLink } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { StrengthMeter } from './strength-meter';
 import { ComplianceBadges } from './compliance-badges';
 import { FeedbackList } from './feedback-list';
@@ -11,7 +12,9 @@ import { BreachCheckConsentDialog } from './breach-check-consent-dialog';
 import { analyzePassword } from '@/lib/password-analyzer';
 import { checkCompliance } from '@/lib/compliance-checker';
 import { checkPasswordBreach, formatBreachCount } from '@/lib/breach-checker';
+import { createReportData, generateShareableUrl, getReportSummary } from '@/lib/report-utils';
 import { PasswordAnalysis, ComplianceResult, ComplianceStandard } from '@/types/password';
+import { useToast } from '@/hooks/use-toast';
 
 export function PasswordChecker() {
   const [password, setPassword] = useState('');
@@ -19,12 +22,17 @@ export function PasswordChecker() {
   const [activeStandard, setActiveStandard] = useState<ComplianceStandard>('NIST');
   const [analysis, setAnalysis] = useState<PasswordAnalysis | null>(null);
   const [complianceResult, setComplianceResult] = useState<ComplianceResult | null>(null);
+  const { toast } = useToast();
   
   // Breach checking state
   const [breachCheckEnabled, setBreachCheckEnabled] = useState<boolean>(() => {
     return localStorage.getItem('breachCheckConsent') === 'true';
   });
   const [showConsentDialog, setShowConsentDialog] = useState(false);
+  
+  // Share report state
+  const [showShareDialog, setShowShareDialog] = useState(false);
+  const [shareableUrl, setShareableUrl] = useState('');
 
   // Password analysis effect
   useEffect(() => {
@@ -95,6 +103,39 @@ export function PasswordChecker() {
     setShowPassword(!showPassword);
   };
 
+  const handleShareReport = () => {
+    if (analysis) {
+      const reportData = createReportData(analysis, complianceResult);
+      const url = generateShareableUrl(reportData);
+      setShareableUrl(url);
+      setShowShareDialog(true);
+    }
+  };
+
+  const handleCopyUrl = () => {
+    navigator.clipboard.writeText(shareableUrl);
+    toast({
+      title: "Link copied!",
+      description: "The shareable report link has been copied to your clipboard"
+    });
+  };
+
+  const handleCopySummary = () => {
+    if (analysis) {
+      const reportData = createReportData(analysis, complianceResult);
+      const summary = getReportSummary(reportData);
+      navigator.clipboard.writeText(summary);
+      toast({
+        title: "Summary copied!",
+        description: "The report summary has been copied to your clipboard"
+      });
+    }
+  };
+
+  const handleOpenReport = () => {
+    window.open(shareableUrl, '_blank');
+  };
+
   return (
     <div className="lg:col-span-2 space-y-6">
       {/* Password Input Section */}
@@ -133,6 +174,21 @@ export function PasswordChecker() {
 
           {/* Strength Meter */}
           {analysis && <StrengthMeter analysis={analysis} />}
+          
+          {/* Share Button */}
+          {password && analysis && analysis.score > 0 && (
+            <div className="pt-4 border-t border-border">
+              <Button
+                onClick={handleShareReport}
+                variant="outline"
+                className="w-full"
+                data-testid="button-share-report"
+              >
+                <Share2 className="w-4 h-4 mr-2" />
+                Share Analysis Report
+              </Button>
+            </div>
+          )}
         </div>
       </div>
 
@@ -292,6 +348,76 @@ export function PasswordChecker() {
         onConsent={handleConsent}
         onDecline={handleDecline}
       />
+
+      {/* Share Report Dialog */}
+      <Dialog open={showShareDialog} onOpenChange={setShowShareDialog}>
+        <DialogContent className="max-w-lg" data-testid="share-dialog">
+          <DialogHeader>
+            <DialogTitle className="flex items-center gap-2">
+              <Share2 className="w-5 h-5" />
+              Share Analysis Report
+            </DialogTitle>
+            <DialogDescription>
+              Share this password analysis without revealing the actual password
+            </DialogDescription>
+          </DialogHeader>
+
+          <div className="space-y-4 py-4">
+            {/* Shareable URL */}
+            <div>
+              <Label className="text-sm font-medium mb-2 block">Shareable Link</Label>
+              <div className="flex gap-2">
+                <Input
+                  value={shareableUrl}
+                  readOnly
+                  className="font-mono text-xs"
+                  data-testid="input-shareable-url"
+                />
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={handleCopyUrl}
+                  data-testid="button-copy-url"
+                >
+                  <Copy className="w-4 h-4" />
+                </Button>
+              </div>
+              <p className="text-xs text-muted-foreground mt-2">
+                This link contains the analysis results but NOT your actual password
+              </p>
+            </div>
+
+            {/* Action Buttons */}
+            <div className="flex flex-col gap-2">
+              <Button
+                onClick={handleOpenReport}
+                className="w-full"
+                data-testid="button-open-report"
+              >
+                <ExternalLink className="w-4 h-4 mr-2" />
+                Open Report in New Tab
+              </Button>
+              <Button
+                onClick={handleCopySummary}
+                variant="outline"
+                className="w-full"
+                data-testid="button-copy-summary-dialog"
+              >
+                <Copy className="w-4 h-4 mr-2" />
+                Copy Text Summary
+              </Button>
+            </div>
+
+            {/* Privacy Notice */}
+            <div className="bg-blue-50 dark:bg-blue-950 border border-blue-200 dark:border-blue-800 rounded-lg p-3">
+              <p className="text-xs text-blue-800 dark:text-blue-200">
+                🔒 <strong>Privacy Protected:</strong> The shareable link contains only your password's 
+                strength metrics and analysis. Your actual password is never included in the link.
+              </p>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
 
       {/* Detailed Feedback */}
       <div className="bg-card p-6 rounded-lg shadow-sm border border-border">
