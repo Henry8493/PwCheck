@@ -1,41 +1,38 @@
-import { useEffect } from 'react';
 import { AlertTriangle, RefreshCcw, ShieldX, Database, ClipboardCheck } from 'lucide-react';
 import { SiteHeader } from '@/components/site-header';
 import { SiteFooter } from '@/components/site-footer';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { usePageSeo } from '@/hooks/use-page-seo';
 
 export default function AvoidPasswordReuse() {
-  useEffect(() => {
-    document.title = 'Avoid Password Reuse | Pw Check';
+  const canonicalPath = '/security/avoid-password-reuse';
+  const canonicalUrl =
+    typeof window !== 'undefined' ? new URL(canonicalPath, window.location.origin).toString() : canonicalPath;
 
-    let metaDescription = document.querySelector('meta[name="description"]');
-    if (!metaDescription) {
-      metaDescription = document.createElement('meta');
-      metaDescription.setAttribute('name', 'description');
-      document.head.appendChild(metaDescription);
+  usePageSeo({
+    title: 'Avoid Password Reuse | Pw Check',
+    description: 'Discover why password reuse creates systemic risk, how to detect it, and the controls that keep credentials unique.',
+    canonicalPath,
+    ogType: 'article',
+    structuredData: {
+      '@context': 'https://schema.org',
+      '@type': 'Article',
+      headline: 'Break the Password Reuse Habit',
+      description:
+        'Discover why password reuse creates systemic risk, how to detect it, and the controls that keep credentials unique.',
+      author: {
+        '@type': 'Organization',
+        name: 'Pw Check'
+      },
+      publisher: {
+        '@type': 'Organization',
+        name: 'Pw Check'
+      },
+      datePublished: '2024-05-05',
+      dateModified: '2024-06-14',
+      url: canonicalUrl
     }
-    metaDescription.setAttribute(
-      'content',
-      'Discover why password reuse creates systemic risk, how to detect it, and the controls that keep credentials unique.'
-    );
-
-    const addMetaTag = (property: string, content: string) => {
-      let metaTag = document.querySelector(`meta[property="${property}"]`);
-      if (!metaTag) {
-        metaTag = document.createElement('meta');
-        metaTag.setAttribute('property', property);
-        document.head.appendChild(metaTag);
-      }
-      metaTag.setAttribute('content', content);
-    };
-
-    addMetaTag('og:title', 'Avoid Password Reuse | Pw Check');
-    addMetaTag(
-      'og:description',
-      'Stop credential stuffing by enforcing unique passwords, monitoring for reuse, and guiding teams with practical policies.'
-    );
-    addMetaTag('og:type', 'article');
-  }, []);
+  });
 
   const risks = [
     {

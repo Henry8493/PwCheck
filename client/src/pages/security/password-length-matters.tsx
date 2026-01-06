@@ -1,41 +1,39 @@
-import { useEffect } from 'react';
 import { Ruler, Hash, LineChart, ShieldCheck, Clock, Layers, ArrowUpRight } from 'lucide-react';
 import { SiteHeader } from '@/components/site-header';
 import { SiteFooter } from '@/components/site-footer';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { usePageSeo } from '@/hooks/use-page-seo';
 
 export default function PasswordLengthMatters() {
-  useEffect(() => {
-    document.title = 'Why Password Length Matters More Than Complexity | Pw Check';
+  const canonicalPath = '/security/password-length-matters';
+  const canonicalUrl =
+    typeof window !== 'undefined' ? new URL(canonicalPath, window.location.origin).toString() : canonicalPath;
 
-    let metaDescription = document.querySelector('meta[name="description"]');
-    if (!metaDescription) {
-      metaDescription = document.createElement('meta');
-      metaDescription.setAttribute('name', 'description');
-      document.head.appendChild(metaDescription);
+  usePageSeo({
+    title: 'Why Password Length Matters More Than Complexity | Pw Check',
+    description:
+      'Understand why prioritising password length outperforms arbitrary complexity rules, supported by breach analytics and practical rollout guidance.',
+    canonicalPath,
+    ogType: 'article',
+    structuredData: {
+      '@context': 'https://schema.org',
+      '@type': 'Article',
+      headline: 'Why Password Length Matters More Than Complexity',
+      description:
+        'Understand why prioritising password length outperforms arbitrary complexity rules, supported by breach analytics and practical rollout guidance.',
+      author: {
+        '@type': 'Organization',
+        name: 'Pw Check'
+      },
+      publisher: {
+        '@type': 'Organization',
+        name: 'Pw Check'
+      },
+      datePublished: '2024-05-12',
+      dateModified: '2024-06-19',
+      url: canonicalUrl
     }
-    metaDescription.setAttribute(
-      'content',
-      'Understand why prioritising password length outperforms arbitrary complexity rules, supported by breach analytics and practical rollout guidance.'
-    );
-
-    const addMetaTag = (property: string, content: string) => {
-      let metaTag = document.querySelector(`meta[property="${property}"]`);
-      if (!metaTag) {
-        metaTag = document.createElement('meta');
-        metaTag.setAttribute('property', property);
-        document.head.appendChild(metaTag);
-      }
-      metaTag.setAttribute('content', content);
-    };
-
-    addMetaTag('og:title', 'Why Password Length Matters More Than Complexity | Pw Check');
-    addMetaTag(
-      'og:description',
-      'See the evidence behind length-first password strategies and how to evolve corporate policy without disrupting users.'
-    );
-    addMetaTag('og:type', 'article');
-  }, []);
+  });
 
   const evidence = [
     {

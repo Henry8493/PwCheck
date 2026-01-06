@@ -1,41 +1,39 @@
-import { useEffect } from 'react';
 import { KeyRound, ShieldCheck, UsersRound, LockKeyhole, ClipboardList } from 'lucide-react';
 import { SiteHeader } from '@/components/site-header';
 import { SiteFooter } from '@/components/site-footer';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { usePageSeo } from '@/hooks/use-page-seo';
 
 export default function UsePasswordManager() {
-  useEffect(() => {
-    document.title = 'Password Manager Adoption Guide | Pw Check';
+  const canonicalPath = '/security/use-password-manager';
+  const canonicalUrl =
+    typeof window !== 'undefined' ? new URL(canonicalPath, window.location.origin).toString() : canonicalPath;
 
-    let metaDescription = document.querySelector('meta[name="description"]');
-    if (!metaDescription) {
-      metaDescription = document.createElement('meta');
-      metaDescription.setAttribute('name', 'description');
-      document.head.appendChild(metaDescription);
+  usePageSeo({
+    title: 'Password Manager Adoption Guide | Pw Check',
+    description:
+      'Learn how password managers reduce breaches, how to vet vendors, and how to roll out secure credential sharing for teams.',
+    canonicalPath,
+    ogType: 'article',
+    structuredData: {
+      '@context': 'https://schema.org',
+      '@type': 'Article',
+      headline: 'Why Your Team Needs a Password Manager',
+      description:
+        'Learn how password managers reduce breaches, how to vet vendors, and how to roll out secure credential sharing for teams.',
+      author: {
+        '@type': 'Organization',
+        name: 'Pw Check'
+      },
+      publisher: {
+        '@type': 'Organization',
+        name: 'Pw Check'
+      },
+      datePublished: '2024-05-08',
+      dateModified: '2024-06-16',
+      url: canonicalUrl
     }
-    metaDescription.setAttribute(
-      'content',
-      'Learn how password managers reduce breaches, how to vet vendors, and how to roll out secure credential sharing for teams.'
-    );
-
-    const addMetaTag = (property: string, content: string) => {
-      let metaTag = document.querySelector(`meta[property="${property}"]`);
-      if (!metaTag) {
-        metaTag = document.createElement('meta');
-        metaTag.setAttribute('property', property);
-        document.head.appendChild(metaTag);
-      }
-      metaTag.setAttribute('content', content);
-    };
-
-    addMetaTag('og:title', 'Password Manager Adoption Guide | Pw Check');
-    addMetaTag(
-      'og:description',
-      'Practical guidance for selecting, securing, and launching a password manager that keeps credentials unique and encrypted.'
-    );
-    addMetaTag('og:type', 'article');
-  }, []);
+  });
 
   const benefits = [
     {

@@ -1,41 +1,39 @@
-import { useEffect } from 'react';
 import { CheckCircle, ListChecks, Lock, AlertTriangle, Sparkles } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { SiteHeader } from '@/components/site-header';
 import { SiteFooter } from '@/components/site-footer';
+import { usePageSeo } from '@/hooks/use-page-seo';
 
 export default function PasswordBestPractices() {
-  useEffect(() => {
-    document.title = 'Password Best Practices Guide | Pw Check';
+  const canonicalPath = '/password-best-practices';
+  const canonicalUrl =
+    typeof window !== 'undefined' ? new URL(canonicalPath, window.location.origin).toString() : canonicalPath;
 
-    let metaDescription = document.querySelector('meta[name="description"]');
-    if (!metaDescription) {
-      metaDescription = document.createElement('meta');
-      metaDescription.setAttribute('name', 'description');
-      document.head.appendChild(metaDescription);
+  usePageSeo({
+    title: 'Password Best Practices Guide | Pw Check',
+    description:
+      'Actionable password best practices for teams and individuals. Learn how to create secure passphrases, avoid common mistakes, and align with leading compliance standards.',
+    canonicalPath,
+    ogType: 'article',
+    structuredData: {
+      '@context': 'https://schema.org',
+      '@type': 'Article',
+      headline: 'Password Best Practices',
+      description:
+        'Actionable password best practices for teams and individuals. Learn how to create secure passphrases, avoid common mistakes, and align with leading compliance standards.',
+      author: {
+        '@type': 'Organization',
+        name: 'Pw Check'
+      },
+      publisher: {
+        '@type': 'Organization',
+        name: 'Pw Check'
+      },
+      datePublished: '2024-05-10',
+      dateModified: '2024-06-18',
+      url: canonicalUrl
     }
-    metaDescription.setAttribute(
-      'content',
-      'Actionable password best practices for teams and individuals. Learn how to create secure passphrases, avoid common mistakes, and align with leading compliance standards.'
-    );
-
-    const addMetaTag = (property: string, content: string) => {
-      let metaTag = document.querySelector(`meta[property="${property}"]`);
-      if (!metaTag) {
-        metaTag = document.createElement('meta');
-        metaTag.setAttribute('property', property);
-        document.head.appendChild(metaTag);
-      }
-      metaTag.setAttribute('content', content);
-    };
-
-    addMetaTag('og:title', 'Password Best Practices Guide | Pw Check');
-    addMetaTag(
-      'og:description',
-      'Practical password best practices that help your organisation stay compliant while protecting accounts from takeover.'
-    );
-    addMetaTag('og:type', 'website');
-  }, []);
+  });
 
   const fundamentals = [
     {
