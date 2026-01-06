@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import { CheckCircle, ListChecks, Lock, AlertTriangle, Sparkles, ArrowRight } from 'lucide-react';
 import { Link } from 'wouter';
-import { CheckCircle, ListChecks, Lock, AlertTriangle, Sparkles } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { SiteHeader } from '@/components/site-header';
 import { SiteFooter } from '@/components/site-footer';
