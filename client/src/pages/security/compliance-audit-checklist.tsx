@@ -1,41 +1,39 @@
-import { useEffect } from 'react';
 import { ClipboardCheck, FileText, Building, Shield, CheckCircle2 } from 'lucide-react';
 import { SiteHeader } from '@/components/site-header';
 import { SiteFooter } from '@/components/site-footer';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { usePageSeo } from '@/hooks/use-page-seo';
 
 export default function ComplianceAuditChecklist() {
-  useEffect(() => {
-    document.title = 'A Practical Checklist for Annual Compliance Audits | Pw Check';
+  const canonicalPath = '/security/compliance-audit-checklist';
+  const canonicalUrl =
+    typeof window !== 'undefined' ? new URL(canonicalPath, window.location.origin).toString() : canonicalPath;
 
-    let metaDescription = document.querySelector('meta[name="description"]');
-    if (!metaDescription) {
-      metaDescription = document.createElement('meta');
-      metaDescription.setAttribute('name', 'description');
-      document.head.appendChild(metaDescription);
+  usePageSeo({
+    title: 'A Practical Checklist for Annual Compliance Audits | Pw Check',
+    description:
+      'Follow this end-to-end checklist to prepare evidence, interviews, and technical controls for password compliance audits across key frameworks.',
+    canonicalPath,
+    ogType: 'article',
+    structuredData: {
+      '@context': 'https://schema.org',
+      '@type': 'Article',
+      headline: 'A Practical Checklist for Annual Compliance Audits',
+      description:
+        'Follow this end-to-end checklist to prepare evidence, interviews, and technical controls for password compliance audits across key frameworks.',
+      author: {
+        '@type': 'Organization',
+        name: 'Pw Check'
+      },
+      publisher: {
+        '@type': 'Organization',
+        name: 'Pw Check'
+      },
+      datePublished: '2024-05-15',
+      dateModified: '2024-06-20',
+      url: canonicalUrl
     }
-    metaDescription.setAttribute(
-      'content',
-      'Follow this end-to-end checklist to prepare evidence, interviews, and technical controls for password compliance audits across key frameworks.'
-    );
-
-    const addMetaTag = (property: string, content: string) => {
-      let metaTag = document.querySelector(`meta[property="${property}"]`);
-      if (!metaTag) {
-        metaTag = document.createElement('meta');
-        metaTag.setAttribute('property', property);
-        document.head.appendChild(metaTag);
-      }
-      metaTag.setAttribute('content', content);
-    };
-
-    addMetaTag('og:title', 'A Practical Checklist for Annual Compliance Audits | Pw Check');
-    addMetaTag(
-      'og:description',
-      'Map required controls to repeatable tasks so your team approaches password-related audit evidence with confidence.'
-    );
-    addMetaTag('og:type', 'article');
-  }, []);
+  });
 
   const auditPhases = [
     {

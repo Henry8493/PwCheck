@@ -1,42 +1,40 @@
-import { useEffect } from 'react';
 import { BookOpen, Layers, Target, ClipboardCheck, Clock3 } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { SiteHeader } from '@/components/site-header';
 import { SiteFooter } from '@/components/site-footer';
+import { usePageSeo } from '@/hooks/use-page-seo';
 
 export default function ComplianceGuides() {
-  useEffect(() => {
-    document.title = 'Password Compliance Guides | Pw Check';
+  const canonicalPath = '/compliance-guides';
+  const canonicalUrl =
+    typeof window !== 'undefined' ? new URL(canonicalPath, window.location.origin).toString() : canonicalPath;
 
-    let metaDescription = document.querySelector('meta[name="description"]');
-    if (!metaDescription) {
-      metaDescription = document.createElement('meta');
-      metaDescription.setAttribute('name', 'description');
-      document.head.appendChild(metaDescription);
+  usePageSeo({
+    title: 'Password Compliance Guides | Pw Check',
+    description:
+      'Step-by-step password compliance guides for NIST, GDPR, ISO 27001, and PCI DSS. Understand scope, stakeholders, and controls required for certification.',
+    canonicalPath,
+    ogType: 'article',
+    structuredData: {
+      '@context': 'https://schema.org',
+      '@type': 'WebPage',
+      headline: 'Password Compliance Guides',
+      description:
+        'Step-by-step password compliance guides for NIST, GDPR, ISO 27001, and PCI DSS. Understand scope, stakeholders, and controls required for certification.',
+      author: {
+        '@type': 'Organization',
+        name: 'Pw Check'
+      },
+      publisher: {
+        '@type': 'Organization',
+        name: 'Pw Check'
+      },
+      datePublished: '2024-04-30',
+      dateModified: '2024-06-12',
+      url: canonicalUrl
     }
-    metaDescription.setAttribute(
-      'content',
-      'Step-by-step password compliance guides for NIST, GDPR, ISO 27001, and PCI DSS. Understand scope, stakeholders, and controls required for certification.'
-    );
-
-    const addMetaTag = (property: string, content: string) => {
-      let metaTag = document.querySelector(`meta[property="${property}"]`);
-      if (!metaTag) {
-        metaTag = document.createElement('meta');
-        metaTag.setAttribute('property', property);
-        document.head.appendChild(metaTag);
-      }
-      metaTag.setAttribute('content', content);
-    };
-
-    addMetaTag('og:title', 'Password Compliance Guides | Pw Check');
-    addMetaTag(
-      'og:description',
-      'Implementation checklists and practical advice for aligning password policies with leading security regulations.'
-    );
-    addMetaTag('og:type', 'website');
-  }, []);
+  });
 
   const guides = [
     {

@@ -1,41 +1,39 @@
-import { useEffect } from 'react';
 import { ShieldAlert, Smartphone, QrCode, KeySquare, BellRing } from 'lucide-react';
 import { SiteHeader } from '@/components/site-header';
 import { SiteFooter } from '@/components/site-footer';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { usePageSeo } from '@/hooks/use-page-seo';
 
 export default function EnableTwoFactorAuthentication() {
-  useEffect(() => {
-    document.title = 'Enable Two-Factor Authentication | Pw Check';
+  const canonicalPath = '/security/enable-two-factor-authentication';
+  const canonicalUrl =
+    typeof window !== 'undefined' ? new URL(canonicalPath, window.location.origin).toString() : canonicalPath;
 
-    let metaDescription = document.querySelector('meta[name="description"]');
-    if (!metaDescription) {
-      metaDescription = document.createElement('meta');
-      metaDescription.setAttribute('name', 'description');
-      document.head.appendChild(metaDescription);
+  usePageSeo({
+    title: 'Enable Two-Factor Authentication | Pw Check',
+    description:
+      'Understand the value of two-factor authentication, the options available, and how to deploy MFA for your organisation.',
+    canonicalPath,
+    ogType: 'article',
+    structuredData: {
+      '@context': 'https://schema.org',
+      '@type': 'Article',
+      headline: 'Enable Two-Factor Authentication Everywhere',
+      description:
+        'Understand the value of two-factor authentication, the options available, and how to deploy MFA for your organisation.',
+      author: {
+        '@type': 'Organization',
+        name: 'Pw Check'
+      },
+      publisher: {
+        '@type': 'Organization',
+        name: 'Pw Check'
+      },
+      datePublished: '2024-05-22',
+      dateModified: '2024-06-18',
+      url: canonicalUrl
     }
-    metaDescription.setAttribute(
-      'content',
-      'Understand the value of two-factor authentication, the options available, and how to deploy MFA for your organisation.'
-    );
-
-    const addMetaTag = (property: string, content: string) => {
-      let metaTag = document.querySelector(`meta[property="${property}"]`);
-      if (!metaTag) {
-        metaTag = document.createElement('meta');
-        metaTag.setAttribute('property', property);
-        document.head.appendChild(metaTag);
-      }
-      metaTag.setAttribute('content', content);
-    };
-
-    addMetaTag('og:title', 'Enable Two-Factor Authentication | Pw Check');
-    addMetaTag(
-      'og:description',
-      'Learn the difference between SMS, authenticator apps, and passkeys while building a rollout plan that increases adoption.'
-    );
-    addMetaTag('og:type', 'article');
-  }, []);
+  });
 
   const factors = [
     {
