@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
-import { CheckCircle, ListChecks, Lock, AlertTriangle, Sparkles } from 'lucide-react';
+import { CheckCircle, ListChecks, Lock, AlertTriangle, Sparkles, ArrowRight } from 'lucide-react';
+import { Link } from 'wouter';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { SiteHeader } from '@/components/site-header';
 import { SiteFooter } from '@/components/site-footer';
@@ -169,8 +170,48 @@ export default function PasswordBestPractices() {
             <p>
               Reinforce adoption by measuring password reuse rates and triggering friendly nudges before compliance audits. Pair
               Pw Check&apos;s analysis with automated breach monitoring so high-risk passwords are rotated quickly without the
-              fatigue of scheduled resets.
+              fatigue of scheduled resets. Validate new guidance in the{' '}
+              <Link
+                href="/nist-password-checker"
+                className="font-semibold text-blue-700 dark:text-blue-300 underline"
+              >
+                NIST password checker
+              </Link>{' '}
+              and review trade-offs in the{' '}
+              <Link
+                href="/compliance-comparison"
+                className="font-semibold text-blue-700 dark:text-blue-300 underline"
+              >
+                compliance standards comparison
+              </Link>{' '}
+              before final sign-off.
             </p>
+          </div>
+        </section>
+
+        <section className="mt-12 flex flex-col md:flex-row md:items-center md:justify-between gap-6 bg-blue-50 dark:bg-blue-950/40 border border-blue-100 dark:border-blue-800 rounded-2xl p-8">
+          <div className="space-y-3 max-w-3xl">
+            <h2 className="text-2xl font-semibold text-gray-900 dark:text-white">Connect best practices to live checks</h2>
+            <p className="text-gray-700 dark:text-gray-300">
+              Move from theory to evidence by testing your policies with Pw Check. Generate compliant passphrases, validate them
+              against NIST guidance, and share a standards-aware report with stakeholders.
+            </p>
+          </div>
+          <div className="flex flex-col sm:flex-row gap-3">
+            <Link
+              href="/"
+              className="inline-flex items-center justify-center px-5 py-3 rounded-md bg-blue-600 text-white font-semibold hover:bg-blue-700"
+            >
+              Open the password analyzer
+              <ArrowRight className="h-4 w-4 ml-2" aria-hidden />
+            </Link>
+            <Link
+              href="/compliance-comparison"
+              className="inline-flex items-center justify-center px-5 py-3 rounded-md border border-blue-200 dark:border-blue-800 text-blue-700 dark:text-blue-200 font-semibold"
+            >
+              Review framework differences
+              <ArrowRight className="h-4 w-4 ml-2" aria-hidden />
+            </Link>
           </div>
         </section>
       </div>

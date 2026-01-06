@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
-import { BookOpen, Layers, Target, ClipboardCheck, Clock3 } from 'lucide-react';
+import { BookOpen, Layers, Target, ClipboardCheck, Clock3, ArrowRight } from 'lucide-react';
+import { Link } from 'wouter';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { SiteHeader } from '@/components/site-header';
@@ -113,7 +114,22 @@ export default function ComplianceGuides() {
           </p>
         </div>
 
-        <section className="mb-16">
+        <section className="mb-16 space-y-8">
+          <div className="space-y-4 text-center max-w-4xl mx-auto">
+            <h2 className="text-3xl font-semibold text-gray-900 dark:text-white">Password Compliance Guides by Framework</h2>
+            <p className="text-lg text-gray-600 dark:text-gray-300">
+              Compare what changes between frameworks, then validate your policies using the{' '}
+              <Link href="/compliance-comparison" className="font-semibold text-purple-700 dark:text-purple-300 underline">
+                compliance standards comparison
+              </Link>{' '}
+              and run updated credentials through the{' '}
+              <Link href="/nist-password-checker" className="font-semibold text-purple-700 dark:text-purple-300 underline">
+                NIST password checker
+              </Link>{' '}
+              before audits.
+            </p>
+          </div>
+
           <div className="grid gap-6 md:grid-cols-2">
             {guides.map((guide) => (
               <Card key={guide.name} className="border-0 shadow-lg bg-white/90 dark:bg-gray-900/80">
@@ -155,6 +171,22 @@ export default function ComplianceGuides() {
                 </div>
               );
             })}
+          </div>
+          <div className="mt-8 flex flex-col items-center space-y-3 text-center">
+            <p className="text-gray-700 dark:text-gray-300 max-w-3xl">
+              Each phase produces evidence you can drop into Pw Check. Export a report, then compare requirements with the{' '}
+              <Link href="/compliance-comparison" className="font-semibold text-purple-700 dark:text-purple-300 underline">
+                compliance standards comparison guide
+              </Link>{' '}
+              to keep every control aligned.
+            </p>
+            <Link
+              href="/"
+              className="inline-flex items-center font-semibold text-purple-700 dark:text-purple-300 hover:text-purple-800 dark:hover:text-purple-200"
+            >
+              Launch the password analyzer
+              <ArrowRight className="h-4 w-4 ml-2" aria-hidden />
+            </Link>
           </div>
         </section>
       </div>
