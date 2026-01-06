@@ -111,6 +111,21 @@ export default function AvoidPasswordReuse() {
         </section>
 
         <section className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
+          <div className="lg:col-span-2 flex flex-col space-y-3 text-center">
+            <h2 className="text-2xl font-semibold text-foreground">Controls and Change Management</h2>
+            <p className="text-muted-foreground">
+              Put preventative controls in place, then validate results against compliance frameworks. Run suspicious credentials
+              through the{' '}
+              <Link href="/nist-password-checker" className="font-semibold text-rose-700 dark:text-rose-300 underline">
+                NIST password checker
+              </Link>{' '}
+              and benchmark expectations with the{' '}
+              <Link href="/compliance-comparison" className="font-semibold text-rose-700 dark:text-rose-300 underline">
+                compliance standards comparison
+              </Link>{' '}
+              so policies stay defensible.
+            </p>
+          </div>
           <Card className="bg-white/90 dark:bg-slate-900/80 border-0 shadow-lg">
             <CardHeader>
               <CardTitle className="flex items-center text-xl">
@@ -145,6 +160,24 @@ export default function AvoidPasswordReuse() {
               </ol>
             </CardContent>
           </Card>
+        </section>
+
+        <section className="bg-white/90 dark:bg-slate-900/80 border border-rose-100 dark:border-rose-800 rounded-2xl shadow-lg p-8 space-y-4">
+          <div className="flex items-center space-x-3">
+            <ArrowRight className="h-5 w-5 text-rose-600 dark:text-rose-300" aria-hidden />
+            <h2 className="text-2xl font-semibold text-foreground">Link your programme to measurable checks</h2>
+          </div>
+          <p className="text-muted-foreground">
+            Use Pw Check to enforce unique credentials and produce evidence for auditors. Share the{' '}
+            <Link href="/compliance-comparison" className="font-semibold text-rose-700 dark:text-rose-300 underline">
+              compliance standards comparison
+            </Link>{' '}
+            with stakeholders and send teams to the{' '}
+            <Link href="/nist-password-checker" className="font-semibold text-rose-700 dark:text-rose-300 underline">
+              NIST password checker
+            </Link>{' '}
+            whenever they reset their accounts.
+          </p>
         </section>
       </main>
       <SiteFooter />
