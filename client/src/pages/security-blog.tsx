@@ -1,40 +1,41 @@
-import { useEffect } from 'react';
 import { Link } from 'wouter';
 import { Shield, PenSquare, TrendingUp, AlarmClock, GraduationCap, ArrowRight } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { SiteHeader } from '@/components/site-header';
 import { SiteFooter } from '@/components/site-footer';
+import { usePageSeo } from '@/hooks/use-page-seo';
 
 export default function SecurityBlog() {
-  useEffect(() => {
-    document.title = 'Pw Check Security Blog | Password Intelligence';
+  const canonicalPath = '/security-blog';
+  const canonicalUrl =
+    typeof window !== 'undefined' ? new URL(canonicalPath, window.location.origin).toString() : canonicalPath;
 
-    let metaDescription = document.querySelector('meta[name="description"]');
-    if (!metaDescription) {
-      metaDescription = document.createElement('meta');
-      metaDescription.setAttribute('name', 'description');
-      document.head.appendChild(metaDescription);
+  usePageSeo({
+    title: 'Pw Check Security Blog | Password Intelligence',
+    description:
+      'Read expert analysis on password security, breach trends, and compliance insights from the Pw Check research team.',
+    canonicalPath,
+    ogType: 'website',
+    structuredData: {
+      '@context': 'https://schema.org',
+      '@type': 'WebPage',
+      headline: 'Pw Check Security Blog',
+      description:
+        'Read expert analysis on password security, breach trends, and compliance insights from the Pw Check research team.',
+      author: {
+        '@type': 'Organization',
+        name: 'Pw Check'
+      },
+      publisher: {
+        '@type': 'Organization',
+        name: 'Pw Check'
+      },
+      datePublished: '2024-05-20',
+      dateModified: '2024-06-15',
+      url: canonicalUrl
     }
-    metaDescription.setAttribute(
-      'content',
-      'Read expert analysis on password security, breach trends, and compliance insights from the Pw Check research team.'
-    );
-
-    const addMetaTag = (property: string, content: string) => {
-      let metaTag = document.querySelector(`meta[property="${property}"]`);
-      if (!metaTag) {
-        metaTag = document.createElement('meta');
-        metaTag.setAttribute('property', property);
-        document.head.appendChild(metaTag);
-      }
-      metaTag.setAttribute('content', content);
-    };
-
-    addMetaTag('og:title', 'Pw Check Security Blog | Password Intelligence');
-    addMetaTag('og:description', 'Insights on password breaches, compliance frameworks, and authentication UX.');
-    addMetaTag('og:type', 'website');
-  }, []);
+  });
 
   const featuredPosts = [
     {

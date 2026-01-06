@@ -1,41 +1,39 @@
-import { useEffect } from 'react';
 import { Globe2, Wifi, Users, Lock, ClipboardList, Laptop, Rocket } from 'lucide-react';
 import { SiteHeader } from '@/components/site-header';
 import { SiteFooter } from '@/components/site-footer';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { usePageSeo } from '@/hooks/use-page-seo';
 
 export default function PasswordPoliciesRemoteWorkforce() {
-  useEffect(() => {
-    document.title = 'Designing Password Policies for a Remote Workforce | Pw Check';
+  const canonicalPath = '/security/password-policies-remote-workforce';
+  const canonicalUrl =
+    typeof window !== 'undefined' ? new URL(canonicalPath, window.location.origin).toString() : canonicalPath;
 
-    let metaDescription = document.querySelector('meta[name="description"]');
-    if (!metaDescription) {
-      metaDescription = document.createElement('meta');
-      metaDescription.setAttribute('name', 'description');
-      document.head.appendChild(metaDescription);
+  usePageSeo({
+    title: 'Designing Password Policies for a Remote Workforce | Pw Check',
+    description:
+      'Craft effective password policies for distributed teams, balancing usability with security controls like MFA and secure recovery.',
+    canonicalPath,
+    ogType: 'article',
+    structuredData: {
+      '@context': 'https://schema.org',
+      '@type': 'Article',
+      headline: 'Designing Password Policies for a Remote Workforce',
+      description:
+        'Craft effective password policies for distributed teams, balancing usability with security controls like MFA and secure recovery.',
+      author: {
+        '@type': 'Organization',
+        name: 'Pw Check'
+      },
+      publisher: {
+        '@type': 'Organization',
+        name: 'Pw Check'
+      },
+      datePublished: '2024-05-18',
+      dateModified: '2024-06-17',
+      url: canonicalUrl
     }
-    metaDescription.setAttribute(
-      'content',
-      'Craft effective password policies for distributed teams, balancing usability with security controls like MFA and secure recovery.'
-    );
-
-    const addMetaTag = (property: string, content: string) => {
-      let metaTag = document.querySelector(`meta[property="${property}"]`);
-      if (!metaTag) {
-        metaTag = document.createElement('meta');
-        metaTag.setAttribute('property', property);
-        document.head.appendChild(metaTag);
-      }
-      metaTag.setAttribute('content', content);
-    };
-
-    addMetaTag('og:title', 'Designing Password Policies for a Remote Workforce | Pw Check');
-    addMetaTag(
-      'og:description',
-      'Learn how to operationalise passphrases, MFA, and recovery safeguards tailored for globally distributed employees.'
-    );
-    addMetaTag('og:type', 'article');
-  }, []);
+  });
 
   const remoteChallenges = [
     {
