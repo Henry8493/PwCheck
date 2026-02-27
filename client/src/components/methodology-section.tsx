@@ -39,13 +39,33 @@ export function MethodologySection() {
         'Unique passwords',
         'Secure transmission'
       ]
+    },
+    {
+      name: 'NIS2 Directive',
+      requirements: [
+        'Cyber-hygiene practices',
+        'Risk management measures',
+        'Incident handling obligations',
+        'Supply chain security',
+        'Multi-factor authentication'
+      ]
+    },
+    {
+      name: 'SOC 2',
+      requirements: [
+        'Logical access controls',
+        'System operations monitoring',
+        'Periodic access reviews',
+        'Credential management',
+        'Trust services alignment'
+      ]
     }
   ];
 
   return (
     <div className="mt-12 bg-card p-8 rounded-lg shadow-sm border border-border">
       <h2 className="text-2xl font-bold mb-6">Transparent Methodology</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {standards.map((standard, index) => (
           <div key={index} className="space-y-3" data-testid={`methodology-${index}`}>
             <h3 className="font-semibold text-primary">{standard.name}</h3>

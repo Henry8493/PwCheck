@@ -102,6 +102,24 @@ export function SiteFooter() {
                   PCI DSS
                 </Link>
               </li>
+              <li>
+                <Link
+                  href="/nis2-directive-compliance"
+                  className="hover:text-gray-900 dark:hover:text-white"
+                  data-testid="link-nis2"
+                >
+                  NIS2 Directive
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/soc2-password-compliance"
+                  className="hover:text-gray-900 dark:hover:text-white"
+                  data-testid="link-soc2"
+                >
+                  SOC 2
+                </Link>
+              </li>
             </ul>
           </div>
 

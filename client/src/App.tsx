@@ -10,6 +10,8 @@ import NISTPasswordChecker from "@/pages/nist-password-checker";
 import GDPRPasswordCompliance from "@/pages/gdpr-password-compliance";
 import ISO27001PasswordRules from "@/pages/iso27001-password-rules";
 import PCIDSSPasswordRequirements from "@/pages/pci-dss-password-requirements";
+import NIS2DirectiveCompliance from "@/pages/nis2-directive-compliance";
+import SOC2PasswordCompliance from "@/pages/soc2-password-compliance";
 import ComplianceComparison from "@/pages/compliance-comparison";
 import PasswordBestPractices from "@/pages/password-best-practices";
 import ComplianceGuides from "@/pages/compliance-guides";
@@ -47,6 +49,8 @@ function Router() {
       <Route path="/gdpr-password-compliance" component={GDPRPasswordCompliance} />
       <Route path="/iso27001-password-rules" component={ISO27001PasswordRules} />
       <Route path="/pci-dss-password-requirements" component={PCIDSSPasswordRequirements} />
+      <Route path="/nis2-directive-compliance" component={NIS2DirectiveCompliance} />
+      <Route path="/soc2-password-compliance" component={SOC2PasswordCompliance} />
       <Route path="/compliance-comparison" component={ComplianceComparison} />
       <Route path="/password-best-practices" component={PasswordBestPractices} />
       <Route path="/compliance-guides" component={ComplianceGuides} />

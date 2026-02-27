@@ -100,7 +100,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <Link href="/nist-password-checker" className="group" data-testid="card-nist">
               <div className="p-6 border rounded-lg bg-white/90 dark:bg-gray-900/80 hover:shadow-lg transition-shadow">
                 <div className="text-center">
@@ -156,6 +156,34 @@ export default function Home() {
                   <h3 className="font-semibold mb-2 group-hover:text-red-600 dark:group-hover:text-red-400">PCI DSS</h3>
                   <p className="text-sm text-gray-600 dark:text-gray-300">
                     Payment card industry security standards for cardholder data
+                  </p>
+                </div>
+              </div>
+            </Link>
+
+            <Link href="/nis2-directive-compliance" className="group" data-testid="card-nis2">
+              <div className="p-6 border rounded-lg bg-white/90 dark:bg-gray-900/80 hover:shadow-lg transition-shadow">
+                <div className="text-center">
+                  <div className="w-12 h-12 bg-cyan-100 dark:bg-cyan-900 rounded-lg flex items-center justify-center mx-auto mb-4">
+                    <Lock className="w-6 h-6 text-cyan-600 dark:text-cyan-400" />
+                  </div>
+                  <h3 className="font-semibold mb-2 group-hover:text-cyan-600 dark:group-hover:text-cyan-400">NIS2 Directive</h3>
+                  <p className="text-sm text-gray-600 dark:text-gray-300">
+                    EU cybersecurity requirements for essential and important entities
+                  </p>
+                </div>
+              </div>
+            </Link>
+
+            <Link href="/soc2-password-compliance" className="group" data-testid="card-soc2">
+              <div className="p-6 border rounded-lg bg-white/90 dark:bg-gray-900/80 hover:shadow-lg transition-shadow">
+                <div className="text-center">
+                  <div className="w-12 h-12 bg-amber-100 dark:bg-amber-900 rounded-lg flex items-center justify-center mx-auto mb-4">
+                    <CheckCircle className="w-6 h-6 text-amber-600 dark:text-amber-400" />
+                  </div>
+                  <h3 className="font-semibold mb-2 group-hover:text-amber-600 dark:group-hover:text-amber-400">SOC 2</h3>
+                  <p className="text-sm text-gray-600 dark:text-gray-300">
+                    Trust services criteria for service organization security controls
                   </p>
                 </div>
               </div>
