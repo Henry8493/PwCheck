@@ -19,14 +19,16 @@ export default function Home() {
   usePageSeo({
     title: 'Pw Check | Password Compliance & Strength Analyzer',
     description:
-      'Run instant password checks against NIST, GDPR, ISO 27001, and PCI DSS requirements. Generate compliant credentials and privacy-first reports.',
+      'Run instant password checks against NIST, GDPR, ISO 27001, PCI DSS, NIS2, and SOC 2 requirements. Generate compliant credentials and privacy-first reports.',
     canonicalPath,
     keywords: [
       'password analyzer',
       'nist password checker',
       'password compliance tool',
       'pci dss password requirements',
-      'iso 27001 password rules'
+      'iso 27001 password rules',
+      'nis2 compliance',
+      'soc 2 password standards'
     ],
     structuredData: canonicalUrl
       ? {
@@ -34,7 +36,7 @@ export default function Home() {
           '@type': 'WebPage',
           name: 'Pw Check | Password Compliance & Strength Analyzer',
           description:
-            'Run instant password checks against NIST, GDPR, ISO 27001, and PCI DSS requirements using the Pw Check analyzer.',
+            'Run instant password checks against NIST, GDPR, ISO 27001, PCI DSS, NIS2, and SOC 2 requirements using the Pw Check analyzer.',
           url: canonicalUrl,
           mainEntity: {
             '@type': 'WebApplication',
@@ -67,7 +69,7 @@ export default function Home() {
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto">
             Validate your passwords against industry standards including <strong>NIST SP 800-63B</strong>,
-            <strong> GDPR</strong>, <strong>ISO 27001</strong>, and <strong>PCI DSS</strong> compliance requirements.
+            <strong> GDPR</strong>, <strong>ISO 27001</strong>, <strong>PCI DSS</strong>, <strong>NIS2</strong>, and <strong>SOC 2</strong> compliance requirements.
           </p>
           <div className="text-sm text-gray-500 dark:text-gray-400 mb-12">
             Client-side analysis • No data collection • Enterprise-grade validation
