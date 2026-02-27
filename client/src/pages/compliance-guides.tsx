@@ -15,7 +15,7 @@ export default function ComplianceGuides() {
   usePageSeo({
     title: 'Password Compliance Guides | Pw Check',
     description:
-      'Step-by-step password compliance guides for NIST, GDPR, ISO 27001, and PCI DSS. Understand scope, stakeholders, and controls required for certification.',
+      'Step-by-step password compliance guides for NIST, GDPR, ISO 27001, PCI DSS, NIS2, and SOC 2. Understand scope, stakeholders, and controls required for certification.',
     canonicalPath,
     ogType: 'article',
     structuredData: {
@@ -23,7 +23,7 @@ export default function ComplianceGuides() {
       '@type': 'WebPage',
       headline: 'Password Compliance Guides',
       description:
-        'Step-by-step password compliance guides for NIST, GDPR, ISO 27001, and PCI DSS. Understand scope, stakeholders, and controls required for certification.',
+        'Step-by-step password compliance guides for NIST, GDPR, ISO 27001, PCI DSS, NIS2, and SOC 2. Understand scope, stakeholders, and controls required for certification.',
       author: {
         '@type': 'Organization',
         name: 'Pw Check'
@@ -73,6 +73,24 @@ export default function ComplianceGuides() {
         'Ensure passwords meet minimum length and alphanumeric requirements.',
         'Enforce multi-factor authentication for all access into the CDE.',
         'Log password policy changes and review them during quarterly security scans.'
+      ]
+    },
+    {
+      name: 'NIS2 Directive',
+      focus: 'EU essential and important entity cybersecurity',
+      steps: [
+        'Classify your organisation as essential or important under Article 3 and scope authentication controls accordingly.',
+        'Implement multi-character-class passwords with breach screening aligned to Article 21 risk management measures.',
+        'Integrate incident reporting workflows and supply-chain security reviews into your credential lifecycle.'
+      ]
+    },
+    {
+      name: 'SOC 2',
+      focus: 'Trust services criteria for service organisations',
+      steps: [
+        'Map logical access controls to CC6.1 and document password policies that meet trust services criteria.',
+        'Validate credentials against breach databases and enforce complexity baselines for CC6.6 system operations.',
+        'Maintain continuous monitoring evidence and periodic access reviews for auditor readiness under CC6.2.'
       ]
     }
   ];

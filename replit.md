@@ -1,6 +1,6 @@
 # Overview
 
-Pw Check is a professional password strength analyzer web application designed to help users evaluate and improve their password security. The application provides compliance-based password evaluation against industry standards (NIST SP 800-63B, GDPR, ISO 27001, PCI DSS) while maintaining complete user privacy through client-side processing. Built as a consumer-focused tool, it includes password generation capabilities and educational content about security best practices.
+Pw Check is a professional password strength analyzer web application designed to help users evaluate and improve their password security. The application provides compliance-based password evaluation against industry standards (NIST SP 800-63B, GDPR, ISO 27001, PCI DSS, NIS2 Directive, SOC 2) while maintaining complete user privacy through client-side processing. Built as a consumer-focused tool, it includes password generation capabilities and educational content about security best practices.
 
 # User Preferences
 
@@ -31,7 +31,7 @@ Preferred communication style: Simple, everyday language.
 
 ## Core Application Logic
 - **Password Analysis**: Client-side password strength evaluation with entropy calculation, pattern detection, and common password checking
-- **Compliance Checking**: Multi-standard compliance validation (NIST, GDPR, ISO27001, PCI-DSS) with detailed feedback
+- **Compliance Checking**: Multi-standard compliance validation (NIST, GDPR, ISO27001, PCI-DSS, NIS2, SOC2) with detailed feedback
 - **Password Generation**: Secure password generation with customizable character sets and exclusion options
 - **Breach Detection**: Privacy-preserving password breach checking using Have I Been Pwned API with k-anonymity model
 - **Shareable Reports**: URL-encoded analysis reports that can be shared without exposing passwords, with comprehensive feedback sanitization

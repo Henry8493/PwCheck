@@ -44,4 +44,4 @@ export interface GeneratorOptions {
   excludeAmbiguous: boolean;
 }
 
-export type ComplianceStandard = 'NIST' | 'GDPR' | 'ISO27001' | 'PCI-DSS';
+export type ComplianceStandard = 'NIST' | 'GDPR' | 'ISO27001' | 'PCI-DSS' | 'NIS2' | 'SOC2';

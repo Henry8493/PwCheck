@@ -9,12 +9,14 @@ const STANDARDS: { key: ComplianceStandard; label: string }[] = [
   { key: 'NIST', label: 'NIST 800-63B' },
   { key: 'GDPR', label: 'GDPR' },
   { key: 'ISO27001', label: 'ISO 27001' },
-  { key: 'PCI-DSS', label: 'PCI DSS' }
+  { key: 'PCI-DSS', label: 'PCI DSS' },
+  { key: 'NIS2', label: 'NIS2' },
+  { key: 'SOC2', label: 'SOC 2' }
 ];
 
 export function ComplianceBadges({ activeStandard, onStandardChange }: ComplianceBadgesProps) {
   return (
-    <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
       {STANDARDS.map(({ key, label }) => (
         <button
           key={key}

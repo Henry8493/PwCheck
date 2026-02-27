@@ -10,6 +10,10 @@ export function checkCompliance(password: string, analysis: PasswordAnalysis, st
       return checkISO27001Compliance(password, analysis);
     case 'PCI-DSS':
       return checkPCIDSSCompliance(password, analysis);
+    case 'NIS2':
+      return checkNIS2Compliance(password, analysis);
+    case 'SOC2':
+      return checkSOC2Compliance(password, analysis);
     default:
       throw new Error(`Unknown compliance standard: ${standard}`);
   }
@@ -177,5 +181,102 @@ function checkPCIDSSCompliance(password: string, analysis: PasswordAnalysis): Co
     score,
     requirements,
     feedback: passed ? 'Password meets PCI DSS requirements' : 'Password fails PCI DSS requirements'
+  };
+}
+
+function checkNIS2Compliance(password: string, analysis: PasswordAnalysis): ComplianceResult {
+  // NIS2 Article 21 requires "appropriate and proportionate" cyber-hygiene
+  // measures but does not prescribe specific password rules. The thresholds
+  // below reflect common industry baselines aligned with the directive's
+  // risk-management intent (Article 21(2)).
+  const requirements: ComplianceRequirement[] = [
+    {
+      description: 'Recommended ≥14 characters aligned with Article 21 cyber-hygiene baselines',
+      passed: analysis.length >= 14,
+      severity: analysis.length >= 14 ? 'info' : 'warning'
+    },
+    {
+      description: 'Multi-character-class composition supports risk management measures (Article 21(2)(a))',
+      passed: analysis.hasUppercase && analysis.hasLowercase && analysis.hasNumbers && analysis.hasSymbols,
+      severity: (analysis.hasUppercase && analysis.hasLowercase && analysis.hasNumbers && analysis.hasSymbols) ? 'info' : 'warning'
+    },
+    {
+      description: 'Sufficient entropy supports supply-chain and infrastructure resilience (Article 21(2)(d))',
+      passed: analysis.entropy >= 50,
+      severity: analysis.entropy >= 50 ? 'info' : 'warning'
+    },
+    {
+      description: 'Avoid commonly breached or predictable passwords (Article 21(2)(e) incident prevention)',
+      passed: !analysis.isCommonPassword && !analysis.hasCommonPatterns,
+      severity: (analysis.isCommonPassword || analysis.hasCommonPatterns) ? 'warning' : 'info'
+    },
+    {
+      description: 'Risk-appropriate overall strength aligned to proportionate security measures',
+      passed: analysis.score >= 70,
+      severity: analysis.score >= 70 ? 'info' : 'warning'
+    }
+  ];
+
+  const blockingRequirements = requirements.filter(req => req.severity !== 'info');
+  const passed = blockingRequirements.every(req => req.passed);
+  const score = (requirements.filter(req => req.passed).length / requirements.length) * 100;
+
+  return {
+    standard: 'NIS2 Directive',
+    passed,
+    score,
+    requirements,
+    feedback: passed ? 'Password meets NIS2 baseline recommendations' : 'Password needs improvement for NIS2 compliance baselines'
+  };
+}
+
+function checkSOC2Compliance(password: string, analysis: PasswordAnalysis): ComplianceResult {
+  // SOC 2 Trust Services Criteria (CC6.x) require organisations to define
+  // logical access controls proportionate to risk. The thresholds below
+  // represent widely adopted baselines consistent with CC6.1 expectations;
+  // actual requirements depend on your organisation's control environment.
+  const requirements: ComplianceRequirement[] = [
+    {
+      description: 'Recommended ≥12 characters aligned with CC6.1 logical access controls',
+      passed: analysis.length >= 12,
+      severity: analysis.length >= 12 ? 'info' : 'warning'
+    },
+    {
+      description: 'Mixed case and numeric characters support CC6.1 access security',
+      passed: analysis.hasUppercase && analysis.hasLowercase && analysis.hasNumbers,
+      severity: (analysis.hasUppercase && analysis.hasLowercase && analysis.hasNumbers) ? 'info' : 'warning'
+    },
+    {
+      description: 'Special characters recommended for stronger logical access (CC6.1)',
+      passed: analysis.hasSymbols,
+      severity: analysis.hasSymbols ? 'info' : 'warning'
+    },
+    {
+      description: 'Avoid common passwords to support system operations monitoring (CC6.6)',
+      passed: !analysis.isCommonPassword,
+      severity: analysis.isCommonPassword ? 'warning' : 'info'
+    },
+    {
+      description: 'Avoid predictable patterns or dictionary words (CC6.1 access controls)',
+      passed: !analysis.hasCommonPatterns && !analysis.hasDictionaryWords,
+      severity: (analysis.hasCommonPatterns || analysis.hasDictionaryWords) ? 'warning' : 'info'
+    },
+    {
+      description: 'Adequate overall strength for trust services criteria (CC6.1)',
+      passed: analysis.score >= 60,
+      severity: analysis.score >= 60 ? 'info' : 'warning'
+    }
+  ];
+
+  const blockingRequirements = requirements.filter(req => req.severity !== 'info');
+  const passed = blockingRequirements.every(req => req.passed);
+  const score = (requirements.filter(req => req.passed).length / requirements.length) * 100;
+
+  return {
+    standard: 'SOC 2',
+    passed,
+    score,
+    requirements,
+    feedback: passed ? 'Password meets SOC 2 baseline recommendations' : 'Password needs improvement for SOC 2 compliance baselines'
   };
 }

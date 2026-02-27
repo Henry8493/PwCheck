@@ -10,7 +10,7 @@ import { SiteHeader } from '@/components/site-header';
 import { SiteFooter } from '@/components/site-footer';
 
 export default function ComplianceComparison() {
-  const [selectedStandards, setSelectedStandards] = useState<string[]>(['NIST', 'GDPR', 'ISO27001', 'PCI-DSS']);
+  const [selectedStandards, setSelectedStandards] = useState<string[]>(['NIST', 'GDPR', 'ISO27001', 'PCI-DSS', 'NIS2', 'SOC2']);
   const [focusArea, setFocusArea] = useState<string>('all');
 
   useEffect(() => {
@@ -24,7 +24,7 @@ export default function ComplianceComparison() {
       metaDescription.setAttribute('name', 'description');
       document.head.appendChild(metaDescription);
     }
-    metaDescription.setAttribute('content', 'Compare password policy requirements across NIST SP 800-63B, GDPR, ISO 27001, and PCI DSS standards. Interactive comparison guide for compliance professionals.');
+    metaDescription.setAttribute('content', 'Compare password policy requirements across NIST SP 800-63B, GDPR, ISO 27001, PCI DSS, NIS2, and SOC 2 standards. Interactive comparison guide for compliance professionals.');
     
     // Add Open Graph tags for social sharing
     const addMetaTag = (property: string, content: string) => {
@@ -98,6 +98,34 @@ export default function ComplianceComparison() {
         rotation: { value: 'When compromised', status: 'conditional', details: 'Change when suspected compromise (Req 8.3.7 v4.0)' },
         mfa: { value: 'Required', status: 'required', details: 'For cardholder data environment' }
       }
+    },
+    'NIS2': {
+      name: 'NIS2 Directive',
+      color: 'cyan',
+      focus: 'EU Critical Infrastructure',
+      description: 'EU directive for essential and important entity cybersecurity',
+      requirements: {
+        minLength: { value: '14+ recommended', status: 'recommended', details: 'Aligned with Article 21 cyber-hygiene baselines' },
+        maxLength: { value: 'No limit', status: 'flexible', details: 'No specific upper limit defined' },
+        complexity: { value: 'All char classes', status: 'recommended', details: 'Supports risk management measures (Article 21(2)(a))' },
+        commonPasswords: { value: 'Avoided', status: 'recommended', details: 'Supports incident prevention (Article 21(2)(e))' },
+        rotation: { value: 'Risk-based', status: 'recommended', details: 'Based on incident risk management (Article 21(2)(b))' },
+        mfa: { value: 'Risk-appropriate', status: 'recommended', details: 'Where proportionate to risk (Article 21(2)(j))' }
+      }
+    },
+    'SOC2': {
+      name: 'SOC 2',
+      color: 'amber',
+      focus: 'Service Trust Criteria',
+      description: 'Trust services criteria for service organizations',
+      requirements: {
+        minLength: { value: '12+ recommended', status: 'recommended', details: 'Aligned with CC6.1 logical access controls' },
+        maxLength: { value: 'Not specified', status: 'flexible', details: 'No upper limit requirement' },
+        complexity: { value: 'Mixed case + numbers', status: 'recommended', details: 'Supports CC6.1 access security controls' },
+        commonPasswords: { value: 'Avoided', status: 'recommended', details: 'Supports CC6.6 system operations monitoring' },
+        rotation: { value: 'Periodic review', status: 'recommended', details: 'Regular access reviews and monitoring (CC6.2)' },
+        mfa: { value: 'Recommended', status: 'recommended', details: 'For privileged and remote access (CC6.1)' }
+      }
     }
   };
 
@@ -152,8 +180,8 @@ export default function ComplianceComparison() {
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto">
             Compare password policy requirements across <strong>NIST SP 800-63B</strong>, 
-            <strong> GDPR</strong>, <strong>ISO 27001</strong>, and <strong>PCI DSS</strong> 
-            to choose the right framework for your organization.
+            <strong> GDPR</strong>, <strong>ISO 27001</strong>, <strong>PCI DSS</strong>,
+            <strong> NIS2</strong>, and <strong>SOC 2</strong> to choose the right framework for your organization.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
