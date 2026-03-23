@@ -71,8 +71,20 @@ export default function Home() {
             Validate your passwords against industry standards including <strong>NIST SP 800-63B</strong>,
             <strong> GDPR</strong>, <strong>ISO 27001</strong>, <strong>PCI DSS</strong>, <strong>NIS2</strong>, and <strong>SOC 2</strong> compliance requirements.
           </p>
-          <div className="text-sm text-gray-500 dark:text-gray-400 mb-12">
+          <div className="text-sm text-gray-500 dark:text-gray-400 mb-6">
             Client-side analysis • No data collection • Enterprise-grade validation
+          </div>
+          <div className="text-sm text-gray-400 dark:text-gray-500 mb-12">
+            Sponsored by{' '}
+            <a
+              href="https://athenacalc.com/calculators"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-300 underline"
+              data-testid="link-sponsor-athenacalc"
+            >
+              Athena Calc – Free Online Calculators
+            </a>
           </div>
         </div>
 
