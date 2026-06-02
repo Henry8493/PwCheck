@@ -1,4 +1,5 @@
-import { AlertTriangle, RefreshCcw, ShieldX, Database, ClipboardCheck } from 'lucide-react';
+import { AlertTriangle, ArrowRight, RefreshCcw, ShieldX, Database, ClipboardCheck } from 'lucide-react';
+import { Link } from 'wouter';
 import { SiteHeader } from '@/components/site-header';
 import { SiteFooter } from '@/components/site-footer';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';

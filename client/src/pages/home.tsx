@@ -1,4 +1,4 @@
-import { Lock, CheckCircle } from 'lucide-react';
+import { Lock, CheckCircle, Globe2, ShieldCheck } from 'lucide-react';
 import { Link } from 'wouter';
 import { PasswordChecker } from '@/components/password-checker';
 import { PasswordGenerator } from '@/components/password-generator';
@@ -74,7 +74,7 @@ export default function Home() {
           <div className="text-sm text-gray-500 dark:text-gray-400 mb-6">
             Client-side analysis • No data collection • Enterprise-grade validation
           </div>
-          <div className="text-sm text-gray-400 dark:text-gray-500 mb-12">
+          <div className="text-sm text-gray-400 dark:text-gray-500 mb-8">
             Sponsored by{' '}
             <a
               href="https://athenacalc.com/calculators"
@@ -86,7 +86,40 @@ export default function Home() {
               Athena Calc – Free Online Calculators
             </a>
           </div>
+          <Link
+            href="/password-implementation-checker"
+            className="inline-flex items-center gap-2 rounded-full bg-blue-600 px-5 py-3 text-sm font-semibold text-white shadow-lg transition hover:bg-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 dark:bg-blue-500 dark:hover:bg-blue-400"
+            data-testid="link-implementation-checker-hero"
+          >
+            <ShieldCheck className="h-4 w-4" aria-hidden="true" />
+            New: check password implementation for any website
+          </Link>
         </div>
+
+        <section className="mb-16 rounded-2xl border border-blue-100 bg-white/90 p-6 shadow-sm dark:border-blue-900 dark:bg-gray-900/80" aria-labelledby="implementation-checker-promo-heading">
+          <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-center">
+            <div className="flex gap-4">
+              <div className="hidden h-14 w-14 flex-none items-center justify-center rounded-xl bg-indigo-100 dark:bg-indigo-950 sm:flex">
+                <Globe2 className="h-7 w-7 text-indigo-600 dark:text-indigo-300" aria-hidden="true" />
+              </div>
+              <div>
+                <h2 id="implementation-checker-promo-heading" className="text-2xl font-bold text-gray-900 dark:text-white">
+                  Expand beyond password strength: scan the form implementation
+                </h2>
+                <p className="mt-2 text-gray-600 dark:text-gray-300">
+                  Enter a login, sign-up, or reset URL to grade autocomplete attributes, paste blocking, password-manager compatibility, low maxlength limits, TLS redirects, visible rules, composition requirements, and enumeration-risk messaging.
+                </p>
+              </div>
+            </div>
+            <Link
+              href="/password-implementation-checker"
+              className="inline-flex items-center justify-center rounded-md bg-indigo-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-indigo-700 dark:bg-indigo-500 dark:hover:bg-indigo-400"
+              data-testid="link-implementation-checker-promo"
+            >
+              Run website scanner
+            </Link>
+          </div>
+        </section>
 
         <section className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16" aria-labelledby="password-tools-heading">
           <h2 id="password-tools-heading" className="sr-only">

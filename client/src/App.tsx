@@ -28,6 +28,7 @@ import PasswordLengthMatters from "@/pages/security/password-length-matters";
 import PasswordPoliciesRemoteWorkforce from "@/pages/security/password-policies-remote-workforce";
 import ComplianceAuditChecklist from "@/pages/security/compliance-audit-checklist";
 import PasswordFaq from "@/pages/password-faq";
+import PasswordImplementationChecker from "@/pages/password-implementation-checker";
 
 function ScrollToTop() {
   const [location] = useLocation();
@@ -45,6 +46,7 @@ function Router() {
       <Route path="/" component={Home} />
       <Route path="/report/:data" component={ShareableReport} />
       <Route path="/password-faq" component={PasswordFaq} />
+      <Route path="/password-implementation-checker" component={PasswordImplementationChecker} />
       <Route path="/nist-password-checker" component={NISTPasswordChecker} />
       <Route path="/gdpr-password-compliance" component={GDPRPasswordCompliance} />
       <Route path="/iso27001-password-rules" component={ISO27001PasswordRules} />

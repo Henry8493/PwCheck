@@ -11,6 +11,7 @@ const routes: RouteEntry[] = [
   { path: "/", priority: 1.0 },
   { path: "/report/:data", sitemapPath: "/report/example-report", priority: 0.6 },
   { path: "/password-faq", priority: 0.7 },
+  { path: "/password-implementation-checker", priority: 0.9 },
   { path: "/nist-password-checker", priority: 0.9 },
   { path: "/gdpr-password-compliance", priority: 0.8 },
   { path: "/iso27001-password-rules", priority: 0.8 },
