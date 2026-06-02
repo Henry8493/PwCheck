@@ -53,6 +53,15 @@ export function SiteFooter() {
               </li>
               <li>
                 <Link
+                  href="/password-implementation-checker"
+                  className="hover:text-gray-900 dark:hover:text-white"
+                  data-testid="link-implementation-checker"
+                >
+                  Implementation Checker
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/security-blog"
                   className="hover:text-gray-900 dark:hover:text-white"
                   data-testid="link-blog"
